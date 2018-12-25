@@ -1,4 +1,3 @@
-package cube
 
 import K3D.*
 
@@ -9,7 +8,7 @@ import platform.OpenGLCommon.*
 
 
 private var rotation: GLfloat = 0.0f
-private val rotationSpeed: GLfloat = 0.2f
+private val rotationSpeed: GLfloat = 0.08f
 
 fun displayFunction(){
     // Define a viewing transformation
@@ -20,13 +19,15 @@ fun displayFunction(){
     glPushMatrix()
     glColor3f(1.0f, 1.0f, 1.0f)
     glTranslatef(0.0f, 0.0f, 0.0f)
+    glRotatef(rotation, 0.0f, 1.0f, 0.0f)
 
     // Draw the cube
     glutSolidCube(1.0)
     glPopMatrix()
 
+    rotation += rotationSpeed
 }
 
 fun main(){
-    K3D.initialize("K3D Cube") { displayFunction() }
+    K3D.initialize("K3D Example") { displayFunction() }
 }

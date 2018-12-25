@@ -2,11 +2,16 @@ plugins {
     id 'org.jetbrains.kotlin.konan' version '0.9.1'
 }
 
-// optinally specify the target (e.g. for iOS)
- konan.targets = [ 'macos_x64' ]
+konan.targets = [ 'macos_x64' ]
 
 konanArtifacts {
-    program("app") {
-        enableOptimizations(true)
+    library('K3D') {
+        srcFiles fileTree('src/lib/K3D')
+    }
+
+    program('Example') {
+        libraries {
+            artifact 'K3D'
+        }
     }
 }
