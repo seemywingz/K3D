@@ -68,6 +68,6 @@ fi
 
 if [[ -n $run ]]; then
     echo
-    echo "Running K3D Example"
+    echo "Running K3D Example: ${binName}"
     ${binFile}
 fi

@@ -18,19 +18,18 @@ fun displayFunction(){
     // Push and pop the current matrix stack.
     // This causes the translations and rotations of this matrix not to influence others.
     glPushMatrix()
-    glColor3f(1.0f, 1.0f, 1.0f)
+    glColor3f(1.0f, 0.0f, 1.0f)
     glTranslatef(0.0f, 0.0f, 0.0f)
     glRotatef(rotation, 0.0f, 1.0f, 0.0f)
-    glRotatef(90.0f, 0.0f, 1.0f, 0.0f)
+//    glRotatef(90.0f, 0.0f, 1.0f, 0.0f)
 
     // Draw the teapot
     glutSolidTeapot(1.0)
-    glutSolidSphere(1.0, 70, 70)
     glPopMatrix()
 
     rotation += rotationSpeed
 }
 
 fun main(){
-    K3D.initialize() { displayFunction() }
+    K3D.initialize("K3D Tea Pot") { displayFunction() }
 }
