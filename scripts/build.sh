@@ -13,13 +13,14 @@ EOF
   exit 1
 }
 
-while getopts 'ler' flag; do
+while getopts 'le:r' flag; do
   case "${flag}" in
     l)
       lib=true
       ;;
     e)
       example=true
+      binName=${OPTARG}
       ;;
     r)
       run=true
@@ -39,22 +40,31 @@ function exitOnError () {
   fi
 }
 
+libDir=./lib
+libFile=${libDir}/K3D.klib
+libSrc=./src/main/kotlin/K3D/K3D.kt
+
 if [[ -n $lib ]]; then
     echo
     echo "Building K3D Library"
-    kotlinc-native src/kotlin/K3D/K3D.kt -opt -p library -o ./lib/K3D
-    exitOnError "Library Built: ./lib/K3D.klib"
+    kotlinc-native ${libSrc} -opt -p library -o ${libDir}/K3D
+    exitOnError "Library Built: ${libFile}"
 fi
+
+binDir=./bin
+[[ -z ${binName} ]] && binName=example ||:
+binFile=${binDir}/${binName}.kexe
+binSrc=./src/main/kotlin/example/${binName}.kt
 
 if [[ -n $example ]]; then
     echo
-    echo "Building K3D Example"
-    kotlinc-native src/kotlin/example/Example.kt -o bin/example -opt -e example.main -l ./lib/K3D
-    exitOnError "Example Built: ./bin/Example.kexe"
+    echo "Building K3D ${binName}"
+    kotlinc-native ${binSrc} -o ${binDir}/${binName} -opt -e ${binName}.main -l ${libDir}/K3D
+    exitOnError "Example Built: ${binFile}"
 fi
 
 if [[ -n $run ]]; then
     echo
     echo "Running K3D Example"
-    ./bin/example.kexe
+    ${binFile}
 fi

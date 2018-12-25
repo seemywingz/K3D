@@ -1,4 +1,4 @@
-package example
+package TeaPot
 
 import K3D.*
 
