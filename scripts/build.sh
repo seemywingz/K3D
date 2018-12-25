@@ -6,20 +6,23 @@ read -r -d '' HELP<<-"EOF"
   usage: build.sh [options]
   options:
     -l, build library
-    -e, build example
+    -b, build example -- defaault: Simple
+    -e, name of example
     -r, run example
 EOF
   echo "${HELP}"
   exit 1
 }
 
-while getopts 'le:r' flag; do
+while getopts 'lbe:r' flag; do
   case "${flag}" in
     l)
       lib=true
       ;;
+    b)
+      build=true
+      ;;
     e)
-      example=true
       binName=${OPTARG}
       ;;
     r)
@@ -52,13 +55,13 @@ if [[ -n $lib ]]; then
 fi
 
 binDir=./bin
-[[ -z ${binName} ]] && binName=example ||:
+[[ -z ${binName} ]] && binName=Cube ||:
 binFile=${binDir}/${binName}.kexe
 binSrc=./src/main/kotlin/example/${binName}.kt
 
-if [[ -n $example ]]; then
+if [[ -n $build ]]; then
     echo
-    echo "Building K3D ${binName}"
+    echo "Building K3D Example: ${binName}"
     kotlinc-native ${binSrc} -o ${binDir}/${binName} -opt -e ${binName}.main -l ${libDir}/K3D
     exitOnError "Example Built: ${binFile}"
 fi

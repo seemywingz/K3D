@@ -1,4 +1,4 @@
-package Simple
+package cube
 
 import K3D.*
 
@@ -28,5 +28,5 @@ fun displayFunction(){
 }
 
 fun main(){
-    K3D.initialize() { displayFunction() }
+    K3D.initialize("K3D Cube") { displayFunction() }
 }

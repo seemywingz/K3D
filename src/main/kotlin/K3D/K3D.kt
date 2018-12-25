@@ -19,7 +19,7 @@ fun display() {
 }
 
 
-fun initialize( width: Int = 640, height: Int = 480, dispLambda: () -> Unit ) {
+fun initialize( appName: String = "K3D", width: Int = 640, height: Int = 480, dispLambda: () -> Unit ) {
     windowWidth = width
     windowHeight = height
     displayLambda = dispLambda
@@ -37,7 +37,7 @@ fun initialize( width: Int = 640, height: Int = 480, dispLambda: () -> Unit ) {
     glutInitWindowSize(windowWidth, windowHeight)
 
     // create Window
-    glutCreateWindow("src/kotlin/K3D")
+    glutCreateWindow(appName)
 
 
     // register Display Function
