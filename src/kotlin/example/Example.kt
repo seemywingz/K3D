@@ -18,7 +18,7 @@ fun displayFunction(){
     // Push and pop the current matrix stack.
     // This causes the translations and rotations of this matrix not to influence others.
     glPushMatrix()
-    glColor3f(1.0f, 0.0f, 0.0f)
+    glColor3f(1.0f, 1.0f, 1.0f)
     glTranslatef(0.0f, 0.0f, 0.0f)
     glRotatef(rotation, 0.0f, 1.0f, 0.0f)
     glRotatef(90.0f, 0.0f, 1.0f, 0.0f)
