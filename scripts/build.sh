@@ -6,28 +6,23 @@ read -r -d '' HELP<<-"EOF"
   usage: build.sh [options]
   options:
     -l, build library
-    -e [Simple|TeaPot], build the specified example
+    -e, build example
+    -r, run example
 EOF
   echo "${HELP}"
   exit 1
 }
 
-examples=(Simple TeaPot)
-
-while getopts 'le:' flag; do
+while getopts 'ler' flag; do
   case "${flag}" in
     l)
-      target=lib
+      lib=true
       ;;
     e)
-      target=example
-      buildExample=""
-      for example in ${examples[@]}; do
-        if [[ ${OPTARG} == ${example} ]]; then
-          buildExample=${OPTARG}
-        fi
-      done
-      [[ -z ${buildExample} ]] && (echo "Invalid Example: ${OPTARG}"; showHelp) ||:
+      example=true
+      ;;
+    r)
+      run=true
       ;;
     *)
       showHelp
@@ -35,15 +30,31 @@ while getopts 'le:' flag; do
   esac
 done
 
-case "${target}" in
-  lib)
+function exitOnError () {
+  if [[ $? -lt 1 ]]; then
+   echo $1
+  else
+    echo Build Failed...
+    exit 1
+  fi
+}
+
+if [[ -n $lib ]]; then
+    echo
     echo "Building K3D Library"
     kotlinc-native src/kotlin/K3D/K3D.kt -opt -p library -o ./lib/K3D
-    echo "Library Built: ./lib/K3D.klib"
-    ;;
-  example)
-    echo "Building K3D Example ${buildExample}"
-    kotlinc src/kotlin/examples/${buildExample}/${buildExample}.kt -o bin/${buildExample} -opt -e examples.${buildExample}.main -l ./lib/K3D
-    [[ $? -lt 1 ]] && echo "Example ${buildExample} Built: ./bin/${buildExample}.kexe" || echo Build Failed...
-    ;;
-esac
+    exitOnError "Library Built: ./lib/K3D.klib"
+fi
+
+if [[ -n $example ]]; then
+    echo
+    echo "Building K3D Example"
+    kotlinc-native src/kotlin/example/Example.kt -o bin/example -opt -e example.main -l ./lib/K3D
+    exitOnError "Example Built: ./bin/Example.kexe"
+fi
+
+if [[ -n $run ]]; then
+    echo
+    echo "Running K3D Example"
+    ./bin/example.kexe
+fi

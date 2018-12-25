@@ -5,42 +5,47 @@ import platform.GLUT.*
 import platform.OpenGL.*
 import platform.OpenGLCommon.*
 
-// Ported from http://openglsamples.sourceforge.net/projects/index.php/blog/index/
 
-private var rotation: GLfloat = 0.0f
-private val rotationSpeed: GLfloat = 0.2f
-
-private val windowWidth = 640
-private val windowHeight = 480
+var windowWidth: Int = 0
+var windowHeight: Int = 0
+var displayLambda: () -> Unit = {}
 
 fun display() {
     // Clear Screen and Depth Buffer
     glClear((GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT).convert())
     glLoadIdentity()
-
-    // Define a viewing transformation
-    gluLookAt(4.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)
-
-    // Push and pop the current matrix stack.
-    // This causes that translations and rotations on this matrix wont influence others.
-
-    glPushMatrix()
-    glColor3f(1.0f, 0.0f, 0.0f)
-    glTranslatef(0.0f, 0.0f, 0.0f)
-    glRotatef(rotation, 0.0f, 1.0f, 0.0f)
-    glRotatef(90.0f, 0.0f, 1.0f, 0.0f)
-
-    // Draw the teapot
-    glutSolidTeapot(1.0)
-    glPopMatrix()
-
-
-    rotation += rotationSpeed
+    displayLambda()
     glutSwapBuffers()
 }
 
 
-fun initialize() {
+fun initialize( width: Int = 640, height: Int = 480, dispLambda: () -> Unit ) {
+    windowWidth = width
+    windowHeight = height
+    displayLambda = dispLambda
+
+    // initialize and run program
+    memScoped {
+        val argc = alloc<IntVar>().apply { value = 0 }
+        glutInit(argc.ptr, null) // TODO: pass real args
+    }
+
+    // Display Mode
+    glutInitDisplayMode((GLUT_RGB or GLUT_DOUBLE or GLUT_DEPTH).convert())
+
+    // Set window size
+    glutInitWindowSize(windowWidth, windowHeight)
+
+    // create Window
+    glutCreateWindow("src/kotlin/K3D")
+
+
+    // register Display Function
+    glutDisplayFunc(staticCFunction(::display))
+
+    // register Idle Function
+    glutIdleFunc(staticCFunction(::display))
+
     // select projection matrix
     glMatrixMode(GL_PROJECTION)
 
@@ -70,8 +75,8 @@ fun initialize() {
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
 
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, cValuesOf(0.1f, 0.1f, 0.1f, 1.0f))
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, cValuesOf(1.6f, 1.6f, 1.6f, 1.0f))
-    glLightfv(GL_LIGHT0, GL_SPECULAR, cValuesOf(1.7f, 1.7f, 1.3f, 1.0f))
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, cValuesOf(0.6f, 0.6f, 0.6f, 1.0f))
+    glLightfv(GL_LIGHT0, GL_SPECULAR, cValuesOf(0.7f, 0.7f, 0.7f, 1.0f))
 
     glEnable(GL_LIGHT0)
     glEnable(GL_COLOR_MATERIAL)
@@ -82,31 +87,6 @@ fun initialize() {
     glEnable(GL_LIGHTING)
     glEnable(GL_LIGHT0)
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f)
-}
-
-fun main() {
-    // initialize and run program
-    memScoped {
-        val argc = alloc<IntVar>().apply { value = 0 }
-        glutInit(argc.ptr, null) // TODO: pass real args
-    }
-
-    // Display Mode
-    glutInitDisplayMode((GLUT_RGB or GLUT_DOUBLE or GLUT_DEPTH).convert())
-
-    // Set window size
-    glutInitWindowSize(windowWidth, windowHeight)
-
-    // create Window
-    glutCreateWindow("src/kotlin/K3D")
-
-    // register Display Function
-    glutDisplayFunc(staticCFunction(::display))
-
-    // register Idle Function
-    glutIdleFunc(staticCFunction(::display))
-
-    initialize()
 
     // run GLUT mainloop
     glutMainLoop()
