@@ -7,7 +7,7 @@ konan.targets = [ 'macos_x64' ]
 konanArtifacts {
 
     interop('glfw'){
-        defFile 'src/cinterop/glfw.def'
+        defFile 'src/cinterops/glfw.def'
     }
 
     library('K3D') {

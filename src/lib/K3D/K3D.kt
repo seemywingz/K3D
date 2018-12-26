@@ -8,6 +8,7 @@ import platform.OpenGLCommon.*
 var windowWidth: Int = 0
 var windowHeight: Int = 0
 var displayLambda: () -> Unit = {}
+var window: CPointer<GLFWwindow>? = null
 
 fun initGL(){
     // select projection matrix
@@ -54,6 +55,10 @@ fun initGL(){
 
 }
 
+fun glfwMojaveWorkaround(){
+
+}
+
 fun initGLFW( appName: String = "K3D", width: Int = 640, height: Int = 480, display: () -> Unit ) {
     windowWidth = width
     windowHeight = height
@@ -65,7 +70,7 @@ fun initGLFW( appName: String = "K3D", width: Int = 640, height: Int = 480, disp
 
     glfwWindowHint(glfw.GLFW_FLOATING, glfw.GLFW_TRUE)
 
-    val window = glfwCreateWindow(windowWidth, windowHeight, appName, null, null);
+    window = glfwCreateWindow(windowWidth, windowHeight, appName, null, null);
 
     if (window == null){
         println("GLFW Window Creation Failed")
@@ -75,7 +80,7 @@ fun initGLFW( appName: String = "K3D", width: Int = 640, height: Int = 480, disp
 
     initGL()
 
-    // TODO: implement the macOS Mojave WOrkaround
+    // TODO: implement the macOS Mojave Workaround
     // macOS Mojave workaround
     // x, y := Window.GetPos()
     // Update()
