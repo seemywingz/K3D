@@ -70,6 +70,8 @@ fun initGLFW( appName: String = "K3D", width: Int = 640, height: Int = 480, disp
         println("GLFW Initialization Failed")
     }
 
+    glfw.glfwWindowHint(glfw.GLFW_FLOATING, glfw.GLFW_TRUE)
+
     val window = glfw.glfwCreateWindow(windowWidth, windowHeight, appName, null, null);
 
     if (window == null){
@@ -80,8 +82,13 @@ fun initGLFW( appName: String = "K3D", width: Int = 640, height: Int = 480, disp
 
     initGL()
 
+    // TODO: implement the macOS Mojave WOrkaround
+    // macOS Mojave workaround
+//    x, y := Window.GetPos()
+//    Update()
+//    Window.SetPos(x + 1, y)
+
     while (glfw.glfwWindowShouldClose(window) != glfw.GLFW_TRUE){
-        println("Running")
         glClear((GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT).convert())
         glLoadIdentity()
 

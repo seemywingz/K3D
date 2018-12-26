@@ -10,7 +10,7 @@ import platform.OpenGLCommon.*
 private var rotation: GLfloat = 0.0f
 private val rotationSpeed: GLfloat = 0.08f
 
-fun displayFun(){
+fun display(){
     // Define a viewing transformation
     gluLookAt(4.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)
 
@@ -30,5 +30,5 @@ fun displayFun(){
 
 fun main(){
 //    K3D.initGLUT("K3D Spinning Cube", 100, 100) { displayFun() }
-    K3D.initGLFW("K3D Spinning Cube", 100, 100) { displayFun() }
+    K3D.initGLFW("K3D Spinning Cube", 100, 100) { display() }
 }
