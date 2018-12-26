@@ -29,5 +29,5 @@ fun displayFun(){
 }
 
 fun main(){
-    K3D.initialize("K3D Spinning Cube") { displayFun() }
+    K3D.initialize("K3D Spinning Cube", 100, 100) { displayFun() }
 }

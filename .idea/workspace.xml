@@ -2,27 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7f5ef0a-aaa0-49f6-96b0-7508f36ac9fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules/Camera.commonMain.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/Camera.commonTest.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/Camera.macosMain.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/Camera.macosTest.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Camera/src/macosMain/kotlin/sample/SampleMacos.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Camera/src/macosTest/kotlin/sample/SampleTests.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/K3D/Camera.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/generateCInterops.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cinterop/glfw.def" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Camera.commonMain.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Camera.commonTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Camera.macosMain.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Camera.macosTest.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/konan/bin/macos_x64/Example.kexe" beforeDir="false" afterPath="$PROJECT_DIR$/build/konan/bin/macos_x64/Example.kexe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/konan/libs/macos_x64/K3D.klib" beforeDir="false" afterPath="$PROJECT_DIR$/build/konan/libs/macos_x64/K3D.klib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/konan/bin/macos_x64/Cube.kexe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/konan/bin/macos_x64/Example.kexe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/konan/libs/macos_x64/K3D.klib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/Cube.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/Cube.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/K3D/K3D.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/K3D/K3D.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Example.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/Cube.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -49,7 +47,17 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="K3D" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -58,8 +66,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/K3D/K3D.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="120">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding>
+                <element signature="e#13#131#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/examples/Cube.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
+            <state relative-caret-position="620">
+              <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
               <folding>
                 <element signature="e#1#119#0" expanded="true" />
               </folding>
@@ -79,8 +90,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            <state relative-caret-position="133">
+              <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cinterop/glfw.def">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -125,10 +145,13 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Cube.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/Example.kt" />
-        <option value="$PROJECT_DIR$/scripts/build.sh" />
         <option value="$PROJECT_DIR$/src/lib/K3D/Camera.kt" />
         <option value="$PROJECT_DIR$/src/examples/Cube.kt" />
+        <option value="$PROJECT_DIR$/src/cinterop/glfw.def" />
+        <option value="$PROJECT_DIR$/src/cinterops/glfw.def" />
         <option value="$PROJECT_DIR$/src/lib/K3D/K3D.kt" />
+        <option value="$PROJECT_DIR$/scripts/build.sh" />
+        <option value="$PROJECT_DIR$/scripts/generateCInterops.sh" />
         <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
@@ -157,6 +180,12 @@
               <item name="K3D" type="b2602c69:ProjectViewProjectNode" />
               <item name="K3D" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="K3D" type="b2602c69:ProjectViewProjectNode" />
+              <item name="K3D" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cinterop" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="K3D" type="b2602c69:ProjectViewProjectNode" />
@@ -193,11 +222,11 @@
       <recent name="$PROJECT_DIR$/src/kotlin/K3D" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/cinterop" />
+      <recent name="$PROJECT_DIR$/src/main/c_interops" />
       <recent name="$PROJECT_DIR$/src/examples" />
       <recent name="$PROJECT_DIR$/src/main/kotlin" />
       <recent name="$PROJECT_DIR$/src/main" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -228,12 +257,14 @@
     </configuration>
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="K3D" />
+      <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
       <kind value="FILE" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
       <module name="K3D" />
+      <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
       <framework value="gotest" />
       <kind value="DIRECTORY" />
@@ -328,12 +359,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545536275740</updated>
-      <workItem from="1545536277299" duration="25097000" />
+      <workItem from="1545536277299" duration="29440000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25097000" />
+    <option name="totallyTimeSpent" value="29440000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -341,10 +372,10 @@
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Learn" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.14663805" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.14663805" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.35630688" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.35630688" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Database Changes" order="2" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
@@ -361,7 +392,7 @@
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info anchor="right" id="Maven" order="2" />
-      <window_info anchor="right" id="Gradle" order="3" />
+      <window_info anchor="right" id="Gradle" order="3" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="4" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="5" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
@@ -429,13 +460,6 @@
     <entry file="file://$PROJECT_DIR$/Camera/build.gradle">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/build.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/K3D/Camera.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -443,30 +467,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/glfw-build/manifest.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/glfw-build/kotlin/glfw/glfw.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#105#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/glfw-build/manifest.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/build.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="67" column="93" selection-start-line="67" selection-start-column="93" selection-end-line="67" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/glfw-build/kotlin/glfw/glfw.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/examples/Cube.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
+        <state relative-caret-position="620">
+          <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
           <folding>
             <element signature="e#1#119#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/K3D/K3D.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="120">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="e#13#131#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/konan/libs/macos_x64/glfw.klib-build/manifest.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/konan/libs/macos_x64/glfw.klib-build/kotlin/glfw/glfw.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#105#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cinterop/glfw.def">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/generateCInterops.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state relative-caret-position="133">
+          <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,2 @@
+staticLibraries = libglfw3.a
+libraryPaths = /usr/local/lib/ /usr/local/opt/glfw/lib

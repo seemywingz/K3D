@@ -5,8 +5,16 @@ plugins {
 konan.targets = [ 'macos_x64' ]
 
 konanArtifacts {
+
+    interop('glfw'){
+        defFile 'src/cinterop/glfw.def'
+    }
+
     library('K3D') {
         srcFiles fileTree('src/lib/K3D')
+        libraries {
+            artifact 'glfw'
+        }
     }
 
     program('Cube') {

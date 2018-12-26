@@ -4,6 +4,7 @@ import kotlinx.cinterop.*
 import platform.GLUT.*
 import platform.OpenGL.*
 import platform.OpenGLCommon.*
+import glfw.*
 
 
 var windowWidth: Int = 0
