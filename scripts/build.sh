@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+rootDir="$(cd "$(dirname "$0")" && pwd)"
+scriptDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 
 function showHelp () {
 read -r -d '' HELP<<-"EOF"
@@ -43,9 +46,9 @@ function exitOnError () {
   fi
 }
 
-libDir=./lib
+libDir=${scriptDir}/../lib
 libFile=${libDir}/K3D.klib
-libSrc=./src/main/kotlin/K3D/K3D.kt
+libSrc=./src/lib/K3D/K3D.kt
 
 if [[ -n $lib ]]; then
     echo
@@ -54,7 +57,7 @@ if [[ -n $lib ]]; then
     exitOnError "Library Built: ${libFile}"
 fi
 
-binDir=./bin
+binDir=${scriptDir}/../bin
 [[ -z ${binName} ]] && binName=Cube ||:
 binFile=${binDir}/${binName}.kexe
 binSrc=./src/main/kotlin/example/${binName}.kt

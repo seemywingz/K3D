@@ -39,7 +39,6 @@ fun initialize( appName: String = "K3D", width: Int = 640, height: Int = 480, di
     // create Window
     glutCreateWindow(appName)
 
-
     // register Display Function
     glutDisplayFunc(staticCFunction(::display))
 

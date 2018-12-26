@@ -9,9 +9,10 @@ konanArtifacts {
         srcFiles fileTree('src/lib/K3D')
     }
 
-    program('Example') {
+    program('Cube') {
         libraries {
             artifact 'K3D'
         }
+        srcFiles fileTree('src/examples/Cube.kt')
     }
 }
