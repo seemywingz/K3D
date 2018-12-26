@@ -44,4 +44,12 @@ class Window(val appName: String,val windowWidth: Int, val windowHeight: Int, va
         glfwTerminate();
     }
 
+
+    fun glfwMojaveWorkaround(){
+        var xpos: IntVar = nativeHeap.alloc<IntVar>()
+        var ypos: IntVar = nativeHeap.alloc<IntVar>()
+        glfwGetWindowPos(glfwWindow, xpos.ptr, ypos.ptr)
+        glfwSetWindowPos(glfwWindow, xpos.value + 1, ypos.value)
+    }
+
 }
