@@ -6,46 +6,11 @@ import platform.OpenGL.*
 import platform.OpenGLCommon.*
 import glfw.*
 
-
 var windowWidth: Int = 0
 var windowHeight: Int = 0
 var displayLambda: () -> Unit = {}
 
-fun display() {
-    // Clear Screen and Depth Buffer
-    glClear((GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT).convert())
-    glLoadIdentity()
-    displayLambda()
-    glutSwapBuffers()
-}
-
-
-fun initialize( appName: String = "K3D", width: Int = 640, height: Int = 480, dispLambda: () -> Unit ) {
-    windowWidth = width
-    windowHeight = height
-    displayLambda = dispLambda
-
-    // initialize and run program
-    memScoped {
-        val argc = alloc<IntVar>().apply { value = 0 }
-        glutInit(argc.ptr, null) // TODO: pass real args
-    }
-
-    // Display Mode
-    glutInitDisplayMode((GLUT_RGB or GLUT_DOUBLE or GLUT_DEPTH).convert())
-
-    // Set window size
-    glutInitWindowSize(windowWidth, windowHeight)
-
-    // create Window
-    glutCreateWindow(appName)
-
-    // register Display Function
-    glutDisplayFunc(staticCFunction(::display))
-
-    // register Idle Function
-    glutIdleFunc(staticCFunction(::display))
-
+fun initGL(){
     // select projection matrix
     glMatrixMode(GL_PROJECTION)
 
@@ -87,6 +52,86 @@ fun initialize( appName: String = "K3D", width: Int = 640, height: Int = 480, di
     glEnable(GL_LIGHTING)
     glEnable(GL_LIGHT0)
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f)
+
+}
+
+fun initGLFW( appName: String = "K3D", width: Int = 640, height: Int = 480, display: () -> Unit ) {
+    windowWidth = width
+    windowHeight = height
+    displayLambda = display
+
+    // initialize and run program
+    memScoped {
+        val argc = alloc<IntVar>().apply { value = 0 }
+        glutInit(argc.ptr, null) // TODO: pass real args
+    }
+
+    if (glfw.glfwInit() != glfw.GLFW_TRUE){
+        println("GLFW Initialization Failed")
+    }
+
+    val window = glfw.glfwCreateWindow(windowWidth, windowHeight, appName, null, null);
+
+    if (window == null){
+        println("GLFW Window Creation Failed")
+    }
+
+    glfw.glfwMakeContextCurrent(window);
+
+    initGL()
+
+    while (glfw.glfwWindowShouldClose(window) != glfw.GLFW_TRUE){
+        println("Running")
+        glClear((GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT).convert())
+        glLoadIdentity()
+
+        displayLambda()
+
+        glfw.glfwSwapBuffers(window);
+        glfw.glfwPollEvents();
+    }
+
+    glfw.glfwDestroyWindow(window);
+    glfw.glfwTerminate();
+
+}
+
+fun displayGL() {
+    // Clear Screen and Depth Buffer
+    glClear((GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT).convert())
+    glLoadIdentity()
+    displayLambda()
+    glutSwapBuffers()
+}
+
+fun initGLUT( appName: String = "K3D", width: Int = 640, height: Int = 480, dispLambda: () -> Unit ) {
+    windowWidth = width
+    windowHeight = height
+    displayLambda = dispLambda
+
+    // initialize and run program
+    memScoped {
+        val argc = alloc<IntVar>().apply { value = 0 }
+        glutInit(argc.ptr, null) // TODO: pass real args
+    }
+
+    // Display Mode
+    glutInitDisplayMode((GLUT_RGB or GLUT_DOUBLE or GLUT_DEPTH).convert())
+
+    // Set window size
+    glutInitWindowSize(windowWidth, windowHeight)
+
+    // create Window
+    glutCreateWindow(appName)
+
+    // register Display Function
+    glutDisplayFunc(staticCFunction(::displayGL))
+
+    // register Idle Function
+    glutIdleFunc(staticCFunction(::displayGL))
+
+    // Initialize OpenGL
+    initGL()
 
     // run GLUT mainloop
     glutMainLoop()
