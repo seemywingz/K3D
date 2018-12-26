@@ -2,25 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7f5ef0a-aaa0-49f6-96b0-7508f36ac9fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/generateCInterops.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cinterop/glfw.def" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Camera.commonMain.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Camera.commonTest.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Camera.macosMain.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Camera.macosTest.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/konan/bin/macos_x64/Cube.kexe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/konan/bin/macos_x64/Example.kexe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/konan/libs/macos_x64/K3D.klib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/examples/Cube.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/Cube.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/K3D/K3D.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/K3D/K3D.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -90,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+            <state relative-caret-position="100">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -100,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/src/cinterop/glfw.def">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="20">
-              <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+              <caret line="1" column="35" lean-forward="true" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -180,12 +165,6 @@
               <item name="K3D" type="b2602c69:ProjectViewProjectNode" />
               <item name="K3D" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="K3D" type="b2602c69:ProjectViewProjectNode" />
-              <item name="K3D" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cinterop" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="K3D" type="b2602c69:ProjectViewProjectNode" />
@@ -359,12 +338,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545536275740</updated>
-      <workItem from="1545536277299" duration="29440000" />
+      <workItem from="1545536277299" duration="29734000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29440000" />
+    <option name="totallyTimeSpent" value="29734000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -505,16 +484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/K3D/K3D.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="e#13#131#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/konan/libs/macos_x64/glfw.klib-build/manifest.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -531,13 +500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cinterop/glfw.def">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/generateCInterops.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -545,10 +507,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/K3D/K3D.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="e#13#131#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cinterop/glfw.def">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="35" lean-forward="true" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+        <state relative-caret-position="100">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
