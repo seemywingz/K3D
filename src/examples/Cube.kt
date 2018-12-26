@@ -10,6 +10,10 @@ private var rotation: GLfloat = 0.0f
 private val rotationSpeed: GLfloat = 0.08f
 
 fun display(){
+
+    glClear((GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT).convert())
+    glLoadIdentity()
+
     // Define a viewing transformation
     gluLookAt(4.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)
 
@@ -28,6 +32,6 @@ fun display(){
 }
 
 fun main(){
-    //  initGLUT("K3D Spinning Cube", 100, 100) { displayFun() }
-    initGLFW("K3D Spinning Cube", 100, 100) { display() }
+    initK3D("K3D Spinning Cube", 100, 100) { display() }
+
 }
