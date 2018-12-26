@@ -66,40 +66,40 @@ fun initGLFW( appName: String = "K3D", width: Int = 640, height: Int = 480, disp
         glutInit(argc.ptr, null) // TODO: pass real args
     }
 
-    if (glfw.glfwInit() != glfw.GLFW_TRUE){
+    if (glfwInit() != GLFW_TRUE){
         println("GLFW Initialization Failed")
     }
 
-    glfw.glfwWindowHint(glfw.GLFW_FLOATING, glfw.GLFW_TRUE)
+    glfwWindowHint(glfw.GLFW_FLOATING, glfw.GLFW_TRUE)
 
-    val window = glfw.glfwCreateWindow(windowWidth, windowHeight, appName, null, null);
+    val window = glfwCreateWindow(windowWidth, windowHeight, appName, null, null);
 
     if (window == null){
         println("GLFW Window Creation Failed")
     }
 
-    glfw.glfwMakeContextCurrent(window);
+    glfwMakeContextCurrent(window);
 
     initGL()
 
     // TODO: implement the macOS Mojave WOrkaround
     // macOS Mojave workaround
-//    x, y := Window.GetPos()
-//    Update()
-//    Window.SetPos(x + 1, y)
+    // x, y := Window.GetPos()
+    // Update()
+    // Window.SetPos(x + 1, y)
 
-    while (glfw.glfwWindowShouldClose(window) != glfw.GLFW_TRUE){
+    while (glfwWindowShouldClose(window) != GLFW_TRUE){
         glClear((GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT).convert())
         glLoadIdentity()
 
         displayLambda()
 
-        glfw.glfwSwapBuffers(window);
-        glfw.glfwPollEvents();
+        glfwSwapBuffers(window);
+        glfwPollEvents();
     }
 
-    glfw.glfwDestroyWindow(window);
-    glfw.glfwTerminate();
+    glfwDestroyWindow(window);
+    glfwTerminate();
 
 }
 

@@ -29,6 +29,6 @@ fun display(){
 }
 
 fun main(){
-//    K3D.initGLUT("K3D Spinning Cube", 100, 100) { displayFun() }
-    K3D.initGLFW("K3D Spinning Cube", 100, 100) { display() }
+    //  K3D.initGLUT("K3D Spinning Cube", 100, 100) { displayFun() }
+    initGLFW("K3D Spinning Cube", 100, 100) { display() }
 }
