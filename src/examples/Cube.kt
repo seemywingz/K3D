@@ -1,9 +1,8 @@
 
 import K3D.*
-
-import kotlinx.cinterop.*
 import platform.GLUT.*
 import platform.OpenGL.*
+import kotlinx.cinterop.*
 import platform.OpenGLCommon.*
 
 
@@ -29,6 +28,6 @@ fun display(){
 }
 
 fun main(){
-    //  K3D.initGLUT("K3D Spinning Cube", 100, 100) { displayFun() }
+    //  initGLUT("K3D Spinning Cube", 100, 100) { displayFun() }
     initGLFW("K3D Spinning Cube", 100, 100) { display() }
 }

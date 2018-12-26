@@ -1,10 +1,9 @@
 package K3D
 
-import kotlinx.cinterop.*
-import platform.GLUT.*
-import platform.OpenGL.*
-import platform.OpenGLCommon.*
 import glfw.*
+import platform.OpenGL.*
+import kotlinx.cinterop.*
+import platform.OpenGLCommon.*
 
 var windowWidth: Int = 0
 var windowHeight: Int = 0
@@ -60,12 +59,6 @@ fun initGLFW( appName: String = "K3D", width: Int = 640, height: Int = 480, disp
     windowHeight = height
     displayLambda = display
 
-    // initialize and run program
-    memScoped {
-        val argc = alloc<IntVar>().apply { value = 0 }
-        glutInit(argc.ptr, null) // TODO: pass real args
-    }
-
     if (glfwInit() != GLFW_TRUE){
         println("GLFW Initialization Failed")
     }
@@ -101,45 +94,4 @@ fun initGLFW( appName: String = "K3D", width: Int = 640, height: Int = 480, disp
     glfwDestroyWindow(window);
     glfwTerminate();
 
-}
-
-fun displayGL() {
-    // Clear Screen and Depth Buffer
-    glClear((GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT).convert())
-    glLoadIdentity()
-    displayLambda()
-    glutSwapBuffers()
-}
-
-fun initGLUT( appName: String = "K3D", width: Int = 640, height: Int = 480, dispLambda: () -> Unit ) {
-    windowWidth = width
-    windowHeight = height
-    displayLambda = dispLambda
-
-    // initialize and run program
-    memScoped {
-        val argc = alloc<IntVar>().apply { value = 0 }
-        glutInit(argc.ptr, null) // TODO: pass real args
-    }
-
-    // Display Mode
-    glutInitDisplayMode((GLUT_RGB or GLUT_DOUBLE or GLUT_DEPTH).convert())
-
-    // Set window size
-    glutInitWindowSize(windowWidth, windowHeight)
-
-    // create Window
-    glutCreateWindow(appName)
-
-    // register Display Function
-    glutDisplayFunc(staticCFunction(::displayGL))
-
-    // register Idle Function
-    glutIdleFunc(staticCFunction(::displayGL))
-
-    // Initialize OpenGL
-    initGL()
-
-    // run GLUT mainloop
-    glutMainLoop()
 }
