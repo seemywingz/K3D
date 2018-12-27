@@ -32,6 +32,8 @@ fun display(){
 }
 
 fun main(){
+    windowHint("floating", true)
+    windowHint("decorated", false)
     initK3D("K3D Spinning Cube", 100, 100) { display() }
 
 }

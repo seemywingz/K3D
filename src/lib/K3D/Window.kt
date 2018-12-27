@@ -7,6 +7,25 @@ import platform.OpenGL.*
 import kotlinx.cinterop.*
 import platform.OpenGLCommon.*
 
+val windowHints =  mutableListOf<WindowHint>()
+
+class WindowHint(val hint: Int, val boolVal: Int){
+}
+
+fun windowHint(hint: String, boolVal: Boolean ){
+    when (hint) {
+        "floating" -> windowHints.add(WindowHint(GLFW_FLOATING, boolVal.toInt()))
+        "resizable" -> windowHints.add(WindowHint(GLFW_RESIZABLE, boolVal.toInt()))
+        "visable" -> windowHints.add(WindowHint(GLFW_VISIBLE, boolVal.toInt()))
+        "decorated" -> windowHints.add(WindowHint(GLFW_DECORATED, boolVal.toInt()))
+        "focused" -> windowHints.add(WindowHint(GLFW_FOCUSED, boolVal.toInt()))
+        "auto_iconify" -> windowHints.add(WindowHint(GLFW_AUTO_ICONIFY, boolVal.toInt()))
+        "maximized" -> windowHints.add(WindowHint(GLFW_MAXIMIZED, boolVal.toInt()))
+        else -> { // Note the block
+            print("'${hint}' doesn't match any K3D or GLFW window hints")
+        }
+    }
+}
 
 class Window(val appName: String,val windowWidth: Int, val windowHeight: Int, val display: () -> Unit) {
 
@@ -20,8 +39,11 @@ class Window(val appName: String,val windowWidth: Int, val windowHeight: Int, va
         }
 
 
+        windowHints.forEach{
+            glfwWindowHint(it.hint, it.boolVal)
+        }
+
         glfwWindow = glfwCreateWindow(windowWidth, windowHeight, appName, null, null);
-        glfwWindowHint(GLFW_FLOATING, GLFW_TRUE)
 
         if (glfwWindow == null){
             println("GLFW Window Creation Failed")
@@ -43,7 +65,6 @@ class Window(val appName: String,val windowWidth: Int, val windowHeight: Int, va
         glfwDestroyWindow(glfwWindow);
         glfwTerminate();
     }
-
 
     fun glfwMojaveWorkaround(){
         var xpos: IntVar = nativeHeap.alloc<IntVar>()
