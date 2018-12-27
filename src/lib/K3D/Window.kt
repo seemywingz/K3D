@@ -7,20 +7,20 @@ import platform.OpenGL.*
 import kotlinx.cinterop.*
 import platform.OpenGLCommon.*
 
-val windowHints =  mutableListOf<WindowHint>()
+val windowHints =  mutableListOf<GLFWHint>()
 
-class WindowHint(val hint: Int, val boolVal: Int){
+class GLFWHint(val hint: Int, val boolVal: Int){
 }
 
 fun windowHint(hint: String, boolVal: Boolean ){
     when (hint) {
-        "floating" -> windowHints.add(WindowHint(GLFW_FLOATING, boolVal.toInt()))
-        "resizable" -> windowHints.add(WindowHint(GLFW_RESIZABLE, boolVal.toInt()))
-        "visable" -> windowHints.add(WindowHint(GLFW_VISIBLE, boolVal.toInt()))
-        "decorated" -> windowHints.add(WindowHint(GLFW_DECORATED, boolVal.toInt()))
-        "focused" -> windowHints.add(WindowHint(GLFW_FOCUSED, boolVal.toInt()))
-        "auto_iconify" -> windowHints.add(WindowHint(GLFW_AUTO_ICONIFY, boolVal.toInt()))
-        "maximized" -> windowHints.add(WindowHint(GLFW_MAXIMIZED, boolVal.toInt()))
+        "floating" -> windowHints.add(GLFWHint(GLFW_FLOATING, boolVal.toInt()))
+        "resizable" -> windowHints.add(GLFWHint(GLFW_RESIZABLE, boolVal.toInt()))
+        "visable" -> windowHints.add(GLFWHint(GLFW_VISIBLE, boolVal.toInt()))
+        "decorated" -> windowHints.add(GLFWHint(GLFW_DECORATED, boolVal.toInt()))
+        "focused" -> windowHints.add(GLFWHint(GLFW_FOCUSED, boolVal.toInt()))
+        "auto_iconify" -> windowHints.add(GLFWHint(GLFW_AUTO_ICONIFY, boolVal.toInt()))
+        "maximized" -> windowHints.add(GLFWHint(GLFW_MAXIMIZED, boolVal.toInt()))
         else -> { // Note the block
             print("'${hint}' doesn't match any K3D or GLFW window hints")
         }
