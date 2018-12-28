@@ -51,6 +51,29 @@ class Window(val appName: String,val windowWidth: Int, val windowHeight: Int, va
         }
 
         glfwMakeContextCurrent(glfwWindow)
+
+        val onResize = staticCFunction({ window: CPointer<GLFWwindow>?, width: Int, height: Int ->
+            println("Window Resized")
+            camera.setPerspectiveViewport(width, height)
+
+            var xpos: IntVar = nativeHeap.alloc<IntVar>()
+            var ypos: IntVar = nativeHeap.alloc<IntVar>()
+            glfwGetWindowPos(window, xpos.ptr, ypos.ptr)
+            glfwSetWindowPos(window, xpos.value + 1, ypos.value)
+            glfwGetWindowPos(window, xpos.ptr, ypos.ptr)
+            glfwSetWindowPos(window, xpos.value - 1, ypos.value)
+        })
+
+        glfwSetWindowSizeCallback(glfwWindow, onResize )
+    }
+
+    fun glfwMojaveWorkaround(){
+        var xpos: IntVar = nativeHeap.alloc<IntVar>()
+        var ypos: IntVar = nativeHeap.alloc<IntVar>()
+        glfwGetWindowPos(glfwWindow, xpos.ptr, ypos.ptr)
+        glfwSetWindowPos(glfwWindow, xpos.value + 1, ypos.value)
+        glfwGetWindowPos(glfwWindow, xpos.ptr, ypos.ptr)
+        glfwSetWindowPos(glfwWindow, xpos.value - 1, ypos.value)
     }
 
     fun mainLoop(){
@@ -64,13 +87,6 @@ class Window(val appName: String,val windowWidth: Int, val windowHeight: Int, va
 
         glfwDestroyWindow(glfwWindow);
         glfwTerminate();
-    }
-
-    fun glfwMojaveWorkaround(){
-        var xpos: IntVar = nativeHeap.alloc<IntVar>()
-        var ypos: IntVar = nativeHeap.alloc<IntVar>()
-        glfwGetWindowPos(glfwWindow, xpos.ptr, ypos.ptr)
-        glfwSetWindowPos(glfwWindow, xpos.value + 1, ypos.value)
     }
 
 }

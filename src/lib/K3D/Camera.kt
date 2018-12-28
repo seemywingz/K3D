@@ -10,18 +10,7 @@ class Camera(val windowWidth: Int = 640, val windowHeight: Int = 480) {
         // select projection matrix
         glMatrixMode(GL_PROJECTION)
 
-        // set the viewport
-        glViewport(0, 0, windowWidth, windowHeight)
-
-        // set matrix mode
-        glMatrixMode(GL_PROJECTION)
-
-        // reset projection matrix
-        glLoadIdentity()
-        val aspect = windowWidth.toDouble() / windowHeight
-
-        // set up a perspective projection matrix
-        gluPerspective(45.0, aspect, 1.0, 500.0)
+        setPerspectiveViewport(windowWidth, windowHeight)
 
         // specify which matrix is the current matrix
         glMatrixMode(GL_MODELVIEW)
@@ -50,4 +39,23 @@ class Camera(val windowWidth: Int = 640, val windowHeight: Int = 480) {
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f)
     }
 
+    fun setPerspectiveViewport(windowWidth: Int, windowHeight: Int){
+        // set the viewport
+        glViewport(0, 0, windowWidth, windowHeight)
+
+        // set matrix mode
+        glMatrixMode(GL_PROJECTION)
+
+        // reset projection matrix
+        glLoadIdentity()
+        val aspect = windowWidth.toDouble() / windowHeight
+
+        // set up a perspective projection matrix
+        gluPerspective(45.0, aspect, 1.0, 500.0)
+
+        /// Important!!! You need to switch back to the model-view matrix
+        /// or else your OpenGL calls are modifying the projection matrix!
+        glMatrixMode(GL_MODELVIEW); // return to the model matrix
+        glLoadIdentity();           // load an identity matrix into the model-view matrix
+    }
 }
