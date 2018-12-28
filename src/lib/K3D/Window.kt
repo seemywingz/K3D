@@ -27,7 +27,7 @@ fun windowHint(hint: String, boolVal: Boolean ){
     }
 }
 
-class Window(val appName: String,val windowWidth: Int, val windowHeight: Int, val display: () -> Unit) {
+class Window(val appName: String, val windowWidth: Int, val windowHeight: Int, val display: () -> Unit) {
 
     var glfwWindow: CPointer<GLFWwindow>? = null
 
@@ -54,26 +54,30 @@ class Window(val appName: String,val windowWidth: Int, val windowHeight: Int, va
 
         val onResize = staticCFunction({ window: CPointer<GLFWwindow>?, width: Int, height: Int ->
             println("Window Resized")
-            camera.setPerspectiveViewport(width, height)
-
-            var xpos: IntVar = nativeHeap.alloc<IntVar>()
-            var ypos: IntVar = nativeHeap.alloc<IntVar>()
-            glfwGetWindowPos(window, xpos.ptr, ypos.ptr)
-            glfwSetWindowPos(window, xpos.value + 1, ypos.value)
-            glfwGetWindowPos(window, xpos.ptr, ypos.ptr)
-            glfwSetWindowPos(window, xpos.value - 1, ypos.value)
+            memScoped {
+                camera.setPerspectiveViewport(width, height)
+                // re-implement the macOS Mojave workaround unbounded
+                val xpos = alloc<IntVar>()
+                val ypos = alloc<IntVar>()
+                glfwGetWindowPos(window, xpos.ptr, ypos.ptr)
+                glfwSetWindowPos(window, xpos.value + 1, ypos.value)
+                glfwGetWindowPos(window, xpos.ptr, ypos.ptr)
+                glfwSetWindowPos(window, xpos.value - 1, ypos.value)
+            }
         })
 
         glfwSetWindowSizeCallback(glfwWindow, onResize )
     }
 
     fun glfwMojaveWorkaround(){
-        var xpos: IntVar = nativeHeap.alloc<IntVar>()
-        var ypos: IntVar = nativeHeap.alloc<IntVar>()
-        glfwGetWindowPos(glfwWindow, xpos.ptr, ypos.ptr)
-        glfwSetWindowPos(glfwWindow, xpos.value + 1, ypos.value)
-        glfwGetWindowPos(glfwWindow, xpos.ptr, ypos.ptr)
-        glfwSetWindowPos(glfwWindow, xpos.value - 1, ypos.value)
+        memScoped {
+            val xpos = alloc<IntVar>()
+            val ypos = alloc<IntVar>()
+            glfwGetWindowPos(glfwWindow, xpos.ptr, ypos.ptr)
+            glfwSetWindowPos(glfwWindow, xpos.value + 1, ypos.value)
+            glfwGetWindowPos(glfwWindow, xpos.ptr, ypos.ptr)
+            glfwSetWindowPos(glfwWindow, xpos.value - 1, ypos.value)
+        }
     }
 
     fun mainLoop(){
