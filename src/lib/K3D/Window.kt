@@ -53,7 +53,6 @@ class Window(val appName: String, val windowWidth: Int, val windowHeight: Int, v
         glfwMakeContextCurrent(glfwWindow)
 
         val onResize = staticCFunction({ window: CPointer<GLFWwindow>?, width: Int, height: Int ->
-            println("Window Resized")
             memScoped {
                 camera.setPerspectiveViewport(width, height)
                 // re-implement the macOS Mojave workaround unbounded

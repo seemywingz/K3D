@@ -8,7 +8,9 @@ class Camera(val windowWidth: Int = 640, val windowHeight: Int = 480) {
 
     init {
 
+        // print OpenGL Version
         println(glGetString(GL_VERSION))
+
         // select projection matrix
         glMatrixMode(GL_PROJECTION)
 
