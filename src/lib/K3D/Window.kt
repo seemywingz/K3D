@@ -1,11 +1,11 @@
 package K3D
 
 import glfw.*
+import openGL.*
 import kotlinx.cinterop.*
 import kotlin.system.exitProcess
-import platform.OpenGL.*
-import kotlinx.cinterop.*
-import platform.OpenGLCommon.*
+//import platform.OpenGL.*
+//import platform.OpenGLCommon.*
 
 val windowHints =  mutableListOf<GLFWHint>()
 
@@ -43,10 +43,10 @@ class Window(val appName: String, val windowWidth: Int, val windowHeight: Int, v
             glfwWindowHint(it.hint, it.boolVal)
         }
 
-//        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-//        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-//        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-//        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
 
         glfwWindow = glfwCreateWindow(windowWidth, windowHeight, appName, null, null);
 

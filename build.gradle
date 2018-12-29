@@ -6,6 +6,10 @@ konan.targets = [ 'macos_x64', 'linux', 'mingw' ]
 
 konanArtifacts {
 
+    interop('openGL'){
+        defFile 'src/cinterops/openGL.def'
+    }
+
     interop('glfw'){
         defFile 'src/cinterops/glfw.def'
     }
@@ -13,6 +17,7 @@ konanArtifacts {
     library('K3D') {
         srcFiles fileTree('src/lib/K3D')
         libraries {
+            artifact 'openGL'
             artifact 'glfw'
         }
     }
@@ -20,6 +25,7 @@ konanArtifacts {
     program('Cube') {
         libraries {
             artifact 'K3D'
+            artifact 'openGL'
         }
         srcFiles fileTree('src/examples/Cube.kt')
     }

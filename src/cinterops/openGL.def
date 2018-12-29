@@ -1,0 +1,4 @@
+headers = OpenGL.h gl3.h gl3ext.h glu.h
+
+compilerOpts.osx = -I/System/Library/Frameworks/OpenGL.framework/Headers
+linkerOpts.osx = -framework OpenGL
