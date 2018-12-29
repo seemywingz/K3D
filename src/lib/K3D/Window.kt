@@ -43,10 +43,16 @@ class Window(val appName: String, val windowWidth: Int, val windowHeight: Int, v
             glfwWindowHint(it.hint, it.boolVal)
         }
 
+//        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+//        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+//        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+//        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+
         glfwWindow = glfwCreateWindow(windowWidth, windowHeight, appName, null, null);
 
         if (glfwWindow == null){
             println("GLFW Window Creation Failed")
+            glfwTerminate()
             exitProcess(101)
         }
 
@@ -84,12 +90,12 @@ class Window(val appName: String, val windowWidth: Int, val windowHeight: Int, v
 
             this.display()
 
-            glfwSwapBuffers(glfwWindow);
-            glfwPollEvents();
+            glfwSwapBuffers(glfwWindow)
+            glfwPollEvents()
         }
 
-        glfwDestroyWindow(glfwWindow);
-        glfwTerminate();
+        glfwDestroyWindow(glfwWindow)
+        glfwTerminate()
     }
 
 }

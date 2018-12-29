@@ -8,7 +8,7 @@ lateinit var camera: Camera
 lateinit var window: Window
 
 
-fun initK3D( appName: String = "K3D", windowWidth: Int = 640, windowHeight: Int = 480, display: () -> Unit ) {
+fun k3dInit( appName: String = "K3D", windowWidth: Int = 640, windowHeight: Int = 480, display: () -> Unit ) {
 
     window = Window(appName, windowWidth, windowHeight) { display() }
 
@@ -18,4 +18,16 @@ fun initK3D( appName: String = "K3D", windowWidth: Int = 640, windowHeight: Int 
 
     window.mainLoop()
 
+}
+
+// k3dBuildVAO : initializes and returns a vertex array from the points provided.
+fun k3dBuildVAO(points:  FloatArray, program: UInt): UInt {
+
+    println("Generating VAO for program: ${program} with points: ${points}")
+    val vao: UInt = 0u
+
+//    glGenVertexArrays(1, vao)
+//    glBindVertexArray(vao)
+
+    return vao
 }

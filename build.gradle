@@ -2,7 +2,7 @@ plugins {
     id 'org.jetbrains.kotlin.konan' version '0.9.1'
 }
 
-konan.targets = [ 'macos_x64' ]
+konan.targets = [ 'macos_x64', 'linux', 'mingw' ]
 
 konanArtifacts {
 
