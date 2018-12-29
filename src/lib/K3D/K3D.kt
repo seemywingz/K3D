@@ -55,3 +55,27 @@ fun k3dBuildVAO(points:  FloatArray, program: UInt): UInt {
 
     return vao
 }
+
+// CompileShader :
+fun compileShader(shaderType: UInt, source: String): UInt {
+
+    val shader = glCreateShader(shaderType)
+//    val cString = source.cstr.getPointer(nativeHeap)
+
+    glShaderSource(shader, 1, source.cstr, null)
+//    glCompileShader(shader)
+
+//    var status: Int
+//    glGetShaderiv(shader, GL_COMPILE_STATUS, cValuesOf(status))
+//    if status == gl.FALSE {
+//        var logLength int32
+//        gl.GetShaderiv(shader, gl.INFO_LOG_LENGTH, &logLength)
+//
+//        log := strings.Repeat("\x00", int(logLength+1))
+//        gl.GetShaderInfoLog(shader, logLength, nil, gl.Str(log))
+//
+//        EoE("Failed to Compile Source ", fmt.Errorf("failed to compile %v: %v", source, log))
+//    }
+
+    return shader
+}
