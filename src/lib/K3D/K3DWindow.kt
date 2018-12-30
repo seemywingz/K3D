@@ -29,7 +29,7 @@ fun k3dWindowHint(hint: String, boolVal: Boolean ){
 
 class K3DWindow(val appName: String, val windowWidth: Int, val windowHeight: Int, val display: () -> Unit) {
 
-    private var glfwWindow: CPointer<GLFWwindow>? = null
+    var glfwWindow: CPointer<GLFWwindow>? = null
 
     init {
 
