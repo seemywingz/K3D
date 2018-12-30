@@ -6,19 +6,19 @@ import kotlinx.cinterop.*
 import platform.OpenGLCommon.*
 import kotlin.system.exitProcess
 
-lateinit var camera: Camera
-lateinit var window: Window
+lateinit var k3dCamera: K3DCamera
+lateinit var k3dWindow: K3DWindow
 
 
 fun k3dInit( appName: String = "K3D", windowWidth: Int = 640, windowHeight: Int = 480, display: () -> Unit ) {
 
-    window = Window(appName, windowWidth, windowHeight) { display() }
+    k3dWindow = K3DWindow(appName, windowWidth, windowHeight) { display() }
 
-    camera = Camera(windowWidth, windowHeight)
+    k3dCamera = K3DCamera(windowWidth, windowHeight)
 
-    window.glfwMojaveWorkaround()
+    k3dWindow.glfwMojaveWorkaround()
 
-    window.mainLoop()
+    k3dWindow.mainLoop()
 
 }
 
@@ -57,25 +57,27 @@ fun k3dBuildVAO(points:  FloatArray, program: UInt): UInt {
 }
 
 // CompileShader :
-fun compileShader(shaderType: UInt, source: String): UInt {
-
-    val shader = glCreateShader(shaderType)
-//    val cString = source.cstr.getPointer(nativeHeap)
-
-    glShaderSource(shader, 1, source.cstr, null)
-//    glCompileShader(shader)
-
-//    var status: Int
-//    glGetShaderiv(shader, GL_COMPILE_STATUS, cValuesOf(status))
-//    if status == gl.FALSE {
-//        var logLength int32
-//        gl.GetShaderiv(shader, gl.INFO_LOG_LENGTH, &logLength)
+//fun compileShader(shaderType: UInt, source: String): UInt {
+//  memScoped {
+//      val shader = glCreateShader(shaderType)
+////    val cString = source.cstr.getPointer(nativeHeap)
+//      val src = alloc<ByteVar>()
 //
-//        log := strings.Repeat("\x00", int(logLength+1))
-//        gl.GetShaderInfoLog(shader, logLength, nil, gl.Str(log))
+//      glShaderSource(shader, 1, src, null)
+////    glCompileShader(shader)
 //
-//        EoE("Failed to Compile Source ", fmt.Errorf("failed to compile %v: %v", source, log))
-//    }
-
-    return shader
-}
+////    var status: Int
+////    glGetShaderiv(shader, GL_COMPILE_STATUS, cValuesOf(status))
+////    if status == gl.FALSE {
+////        var logLength int32
+////        gl.GetShaderiv(shader, gl.INFO_LOG_LENGTH, &logLength)
+////
+////        log := strings.Repeat("\x00", int(logLength+1))
+////        gl.GetShaderInfoLog(shader, logLength, nil, gl.Str(log))
+////
+////        EoE("Failed to Compile Source ", fmt.Errorf("failed to compile %v: %v", source, log))
+////    }
+//
+//      return shader
+//  }
+//}

@@ -4,7 +4,7 @@ import openGL.*
 import kotlinx.cinterop.*
 //import platform.OpenGLCommon.*
 
-class Camera(val windowWidth: Int = 640, val windowHeight: Int = 480) {
+class K3DCamera(val windowWidth: Int = 640, val windowHeight: Int = 480) {
 
     init {
 

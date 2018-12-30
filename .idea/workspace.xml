@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7f5ef0a-aaa0-49f6-96b0-7508f36ac9fc" name="Default Changelist" comment="remove GLUT support">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/Cube.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/Cube.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/K3D/Camera.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/K3D/K3DCamera.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/K3D/K3D.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/K3D/K3D.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/K3D/Window.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/K3D/K3DWindow.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -48,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/konan/libs/macos_x64/openGL.klib-build/kotlin/openGL/openGL.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="366" column="8" selection-start-line="366" selection-start-column="8" selection-end-line="366" selection-end-column="8" />
+            <state relative-caret-position="185">
+              <caret line="956" column="93" selection-start-line="956" selection-start-column="59" selection-end-line="956" selection-end-column="93" />
               <folding>
                 <element signature="e#107#2329#0" expanded="true" />
               </folding>
@@ -60,8 +64,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lib/K3D/K3D.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="130">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#13#132#0" expanded="true" />
               </folding>
@@ -70,12 +74,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/K3D/Window.kt">
+        <entry file="file://$PROJECT_DIR$/src/lib/K3D/K3DWindow.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="58" column="42" lean-forward="true" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
+            <state relative-caret-position="72">
+              <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
               <folding>
                 <element signature="e#13#101#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/examples/Cube.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="26" column="35" lean-forward="true" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+              <folding>
+                <element signature="e#1#109#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,11 +133,11 @@
       <find>VertexAttribPointer</find>
       <find>GLubyteVar</find>
       <find>glCompileShader</find>
-      <find>glShaderSource</find>
       <find>CValuesRef&lt;CPointerVar&lt;GLcharVar&gt;&gt;?</find>
       <find>alloc</find>
       <find>GLchar</find>
       <find>GLStr</find>
+      <find>glShaderSource</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -161,9 +177,10 @@
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/cinterops/openGL.def" />
+        <option value="$PROJECT_DIR$/src/lib/K3D/Camera.kt" />
         <option value="$PROJECT_DIR$/src/examples/Cube.kt" />
         <option value="$PROJECT_DIR$/src/lib/K3D/Window.kt" />
-        <option value="$PROJECT_DIR$/src/lib/K3D/Camera.kt" />
+        <option value="$PROJECT_DIR$/src/lib/K3D/K3DWindow.kt" />
         <option value="$PROJECT_DIR$/src/lib/K3D/K3D.kt" />
       </list>
     </option>
@@ -198,6 +215,12 @@
               <item name="K3D" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="cinterops" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="K3D" type="b2602c69:ProjectViewProjectNode" />
+              <item name="K3D" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="K3D" type="b2602c69:ProjectViewProjectNode" />
@@ -418,7 +441,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81289000" />
+    <option name="totallyTimeSpent" value="84567000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -431,13 +454,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Learn" order="1" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.14878398" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.14878398" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.35110533" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.35040432" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.32769832" />
       <window_info anchor="bottom" id="Database Changes" order="2" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
@@ -445,8 +469,8 @@
       <window_info anchor="bottom" id="Messages" order="5" weight="0.32899868" />
       <window_info anchor="bottom" id="Docker" order="6" weight="0.32899868" />
       <window_info anchor="bottom" id="Message" order="7" />
-      <window_info anchor="bottom" id="Find" order="8" weight="0.32899868" />
-      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.40431267" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.32884097" />
+      <window_info anchor="bottom" id="Run" order="9" visible="true" weight="0.2884097" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
@@ -578,47 +602,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/examples/Cube.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/K3D/Camera.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-          <folding>
-            <element signature="e#13#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/K3D/Window.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="58" column="42" lean-forward="true" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
-          <folding>
-            <element signature="e#13#101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/konan/libs/macos_x64/openGL.klib-build/kotlin/openGL/openGL.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="366" column="8" selection-start-line="366" selection-start-column="8" selection-end-line="366" selection-end-column="8" />
+        <state relative-caret-position="185">
+          <caret line="956" column="93" selection-start-line="956" selection-start-column="59" selection-end-line="956" selection-end-column="93" />
           <folding>
             <element signature="e#107#2329#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/K3D/K3DWindow.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding>
+            <element signature="e#13#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/examples/Cube.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="26" column="35" lean-forward="true" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding>
+            <element signature="e#1#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/K3D/K3DCamera.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding>
+            <element signature="e#13#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/K3D/K3D.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="130">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#13#132#0" expanded="true" />
           </folding>

@@ -24,7 +24,7 @@ fun display(){
 
 fun main(){
 
-    windowHint("floating", true)
+    k3dWindowHint("floating", true)
     k3dInit("K3D Spinning Cube", 100, 100) { display() }
 
 }
