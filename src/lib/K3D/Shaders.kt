@@ -108,8 +108,18 @@ fun k3dCreateShader(vertexSource: String, fragmentSource: String): UInt{
     }
 }
 
+fun k3dCreateShaderFromFiles(vertexSourceFile: String, fragmentSourceFile: String): UInt {
+
+    val vertexSource = readFileAsString(vertexSourceFile)
+    val fragmentSource = readFileAsString(fragmentSourceFile)
+
+    println(vertexSource)
+    return k3dCreateShader(vertexSource, fragmentSource)
+}
+
 fun k3dInitShaders() {
 
-    K3D_SHADER_BASIC = k3dCreateShader(K3D_SHADER_VERTEX, K3D_SHADER_BASIC_FRAG)
+    K3D_SHADER_BASIC = k3dCreateShaderFromFiles("./src/resources/shaders/Vert.glsl", "./src/resources/shaders/basicFrag.glsl")
+//    K3D_SHADER_BASIC = k3dCreateShader(K3D_SHADER_VERTEX, K3D_SHADER_BASIC_FRAG)
 
 }

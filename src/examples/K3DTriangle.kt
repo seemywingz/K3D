@@ -3,11 +3,7 @@ import openGL.*
 import kotlinx.cinterop.*
 
 var triangleVAO: UInt = 0u
-val trianglePoints = floatArrayOf(
-    -1f, -1f, 0f, 1f, 0f, 0f, 0f, 1f, 0f, 0f, 0f,
-    0f, 1f, 0f, 0f, 0f, 0f, 0f, 1f, 0f, 0f, 0f,
-    1f, -1f, 0f, 1f, 1f, 0f, 0f, 1f, 0f, 0f, 0f
-)
+
 
 fun main(){
 
@@ -15,7 +11,7 @@ fun main(){
     k3dWindowHint("floating", true)
     val k3dWindow = k3dInit("K3D Triangle", 500, 500)
 
-    triangleVAO = k3dCreateVAO(trianglePoints, K3D_SHADER_BASIC)
+    triangleVAO = k3dCreateVAO(K3D_SHAPE_TRIANGLE, K3D_SHADER_BASIC)
     println("triangleVAO: ${triangleVAO}")
 
 

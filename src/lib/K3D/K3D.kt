@@ -14,14 +14,14 @@ fun k3dInit(appName: String, windowWidth: Int, windowHeight: Int): K3DWindow {
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
     glEnable(GL_BLEND)
 
-    k3dPerspective(windowWidth, windowHeight)
+    k3dSetPerspective(windowWidth, windowHeight)
 
     k3dInitShaders()
 
     return k3dWindow
 }
 
-fun k3dPerspective(windowWidth: Int, windowHeight: Int){
+fun k3dSetPerspective(windowWidth: Int, windowHeight: Int){
 
     // set the viewport
     glViewport(0, 0, windowWidth, windowHeight)
