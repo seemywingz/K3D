@@ -1,83 +1,74 @@
 package K3D
 
-import glfw.*
 import openGL.*
 import kotlinx.cinterop.*
-import platform.OpenGLCommon.*
-import kotlin.system.exitProcess
 
-lateinit var k3dCamera: K3DCamera
-lateinit var k3dWindow: K3DWindow
+fun k3dInit(appName: String, windowWidth: Int, windowHeight: Int): K3DWindow {
 
+    val k3dWindow = k3dCreateWindow(appName, windowWidth, windowHeight)
 
-fun k3dInit( appName: String = "K3D", windowWidth: Int = 640, windowHeight: Int = 480, display: () -> Unit ) {
+    // print OpenGL Version and Renderer
+    println(glGetString(GL_VERSION))
+    println(glGetString(GL_RENDERER))
 
-    k3dWindow = K3DWindow(appName, windowWidth, windowHeight) { display() }
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+    glEnable(GL_BLEND)
 
-    k3dCamera = K3DCamera(windowWidth, windowHeight)
+    k3dPerspective(windowWidth, windowHeight)
 
-    k3dWindow.glfwMojaveWorkaround()
+    k3dInitShaders()
 
-    k3dWindow.mainLoop()
+    return k3dWindow
+}
+
+fun k3dPerspective(windowWidth: Int, windowHeight: Int){
+
+    // set the viewport
+    glViewport(0, 0, windowWidth, windowHeight)
+
+    val aspect = windowWidth.toDouble() / windowHeight
+
+    // set up a perspective projection matrix
+    gluPerspective(45.0, aspect, 1.0, 500.0)
 
 }
 
 // k3dBuildVAO : initializes and returns a vertex array from the points provided.
-fun k3dBuildVAO(points:  FloatArray, program: UInt): UInt {
+fun k3dCreateVAO(points:  FloatArray, program: UInt): UInt {
 
-    println("Generating VAO for program: ${program} with points: ${points}")
+    memScoped {
 
-    var vao: UInt = 0u
+        var vao = alloc<UIntVar>()
 
-    glGenVertexArrays(1, cValuesOf(vao))
-    glBindVertexArray(vao)
+        glGenVertexArrays(1, vao.ptr)
+        glBindVertexArray(vao.value)
+        println("New VAO: ${vao.value}")
 
-    var vbo: UInt = 0u
-    glGenBuffers(1, cValuesOf(vbo))
-    glBindBuffer(GL_ARRAY_BUFFER, vbo)
-    glBufferData(GL_ARRAY_BUFFER, points.size.toLong() * 4, points.toCValues(), GL_STATIC_DRAW)
+        var vbo = alloc<UIntVar>()
+        glGenBuffers(1, vbo.ptr)
+        glBindBuffer(GL_ARRAY_BUFFER, vbo.value)
+        glBufferData(GL_ARRAY_BUFFER, points.size.toLong() * 4, points.toCValues(), GL_STATIC_DRAW)
 
-    var vertAttrib = glGetAttribLocation(program, "vert\\x00") as UInt
-    glEnableVertexAttribArray(vertAttrib)
-    glVertexAttribPointer(vertAttrib, 3, GL_FLOAT, 1.toUByte(), 11*4, cValuesOf(0))
+        var vertAttrib = glGetAttribLocation(program, "vert").toUInt()
+        println("vertAttrib: ${vertAttrib}")
+        glEnableVertexAttribArray(vertAttrib)
+        glVertexAttribPointer(vertAttrib, 3, GL_FLOAT, GL_FALSE, 11 * 4, cValuesOf(0))
 
-    var vertTexCoordAttrib = glGetAttribLocation(program, "vertTexCoord\\x00") as UInt
-    glEnableVertexAttribArray(vertTexCoordAttrib)
-    glVertexAttribPointer(vertTexCoordAttrib, 2, GL_FLOAT, 1.toUByte(), 11*4, cValuesOf(3*4))
+        var vertTexCoordAttrib = glGetAttribLocation(program, "vertTexCoord").toUInt()
+        println("vertTexCoordAttrib: ${vertTexCoordAttrib}")
+        glEnableVertexAttribArray(vertTexCoordAttrib)
+        glVertexAttribPointer(vertTexCoordAttrib, 2, GL_FLOAT, GL_FALSE, 11 * 4, cValuesOf(3 * 4))
 
-    var vertNormalAttrib = glGetAttribLocation(program, "vertNormal\\x00") as UInt
-    glEnableVertexAttribArray(vertNormalAttrib)
-    glVertexAttribPointer(vertNormalAttrib, 3, GL_FLOAT, 0.toUByte(), 11*4, cValuesOf(5*4))
+        var vertNormalAttrib = glGetAttribLocation(program, "vertNormal").toUInt()
+        glEnableVertexAttribArray(vertNormalAttrib)
+        glVertexAttribPointer(vertNormalAttrib, 3, GL_FLOAT, GL_TRUE, 11 * 4, cValuesOf(5 * 4))
 
-    var vertTangentAttrib = glGetAttribLocation(program, "vertTangent\\x00") as UInt
-    glEnableVertexAttribArray(vertTangentAttrib)
-    glVertexAttribPointer(vertTangentAttrib, 3, GL_FLOAT, 0.toUByte(), 11*4, cValuesOf(8*4))
+        var vertTangentAttrib = glGetAttribLocation(program, "vertTangent").toUInt()
+        glEnableVertexAttribArray(vertTangentAttrib)
+        glVertexAttribPointer(vertTangentAttrib, 3, GL_FLOAT, GL_TRUE, 11 * 4, cValuesOf(8 * 4))
 
-    return vao
+        return vao.value
+
+    }
+
 }
-
-// CompileShader :
-//fun compileShader(shaderType: UInt, source: String): UInt {
-//  memScoped {
-//      val shader = glCreateShader(shaderType)
-////    val cString = source.cstr.getPointer(nativeHeap)
-//      val src = alloc<ByteVar>()
-//
-//      glShaderSource(shader, 1, src, null)
-////    glCompileShader(shader)
-//
-////    var status: Int
-////    glGetShaderiv(shader, GL_COMPILE_STATUS, cValuesOf(status))
-////    if status == gl.FALSE {
-////        var logLength int32
-////        gl.GetShaderiv(shader, gl.INFO_LOG_LENGTH, &logLength)
-////
-////        log := strings.Repeat("\x00", int(logLength+1))
-////        gl.GetShaderInfoLog(shader, logLength, nil, gl.Str(log))
-////
-////        EoE("Failed to Compile Source ", fmt.Errorf("failed to compile %v: %v", source, log))
-////    }
-//
-//      return shader
-//  }
-//}

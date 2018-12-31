@@ -2,7 +2,7 @@ plugins {
     id 'org.jetbrains.kotlin.konan' version '0.9.1'
 }
 
-konan.targets = [ 'macos_x64', 'linux', 'mingw' ]
+konan.targets = [ 'macos_x64' ]
 
 konanArtifacts {
 
@@ -22,11 +22,11 @@ konanArtifacts {
         }
     }
 
-    program('Cube') {
+    program('K3DTriangle') {
         libraries {
-            artifact 'K3D'
             artifact 'openGL'
+            artifact 'K3D'
         }
-        srcFiles fileTree('src/examples/Cube.kt')
+        srcFiles fileTree('src/examples/K3DTriangle.kt')
     }
 }

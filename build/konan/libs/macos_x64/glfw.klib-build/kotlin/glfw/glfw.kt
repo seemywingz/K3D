@@ -1161,12 +1161,6 @@ const val GLFW_DISCONNECTED: Int = 262146
 
 const val GLFW_DONT_CARE: Int = -1
 
-val __DARWIN_NULL: COpaquePointer?
-    get() = interpretCPointer<COpaque>(kniBridge92())
-
-val NULL: COpaquePointer?
-    get() = interpretCPointer<COpaque>(kniBridge93())
-
 class __mbstate_t(rawPtr: NativePtr) : CStructVar(rawPtr) {
     
     companion object : Type(128, 8)
@@ -1930,7 +1924,3 @@ private external fun kniBridge89(p0: NativePtr): NativePtr
 private external fun kniBridge90(): Int
 @SymbolName("glfw_kniBridge91")
 private external fun kniBridge91(p0: NativePtr): NativePtr
-@SymbolName("glfw_kniBridge92")
-private external fun kniBridge92(): NativePtr
-@SymbolName("glfw_kniBridge93")
-private external fun kniBridge93(): NativePtr
