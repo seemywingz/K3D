@@ -113,7 +113,6 @@ fun k3dCreateShaderFromFiles(vertexSourceFile: String, fragmentSourceFile: Strin
     val vertexSource = readFileAsString(vertexSourceFile)
     val fragmentSource = readFileAsString(fragmentSourceFile)
 
-    println(vertexSource)
     return k3dCreateShader(vertexSource, fragmentSource)
 }
 

@@ -42,7 +42,6 @@ fun k3dCreateVAO(points:  FloatArray, program: UInt): UInt {
 
         glGenVertexArrays(1, vao.ptr)
         glBindVertexArray(vao.value)
-        println("New VAO: ${vao.value}")
 
         var vbo = alloc<UIntVar>()
         glGenBuffers(1, vbo.ptr)
@@ -50,12 +49,10 @@ fun k3dCreateVAO(points:  FloatArray, program: UInt): UInt {
         glBufferData(GL_ARRAY_BUFFER, points.size.toLong() * 4, points.toCValues(), GL_STATIC_DRAW)
 
         var vertAttrib = glGetAttribLocation(program, "vert").toUInt()
-        println("vertAttrib: ${vertAttrib}")
         glEnableVertexAttribArray(vertAttrib)
         glVertexAttribPointer(vertAttrib, 3, GL_FLOAT, GL_FALSE, 11 * 4, cValuesOf(0))
 
         var vertTexCoordAttrib = glGetAttribLocation(program, "vertTexCoord").toUInt()
-        println("vertTexCoordAttrib: ${vertTexCoordAttrib}")
         glEnableVertexAttribArray(vertTexCoordAttrib)
         glVertexAttribPointer(vertTexCoordAttrib, 2, GL_FLOAT, GL_FALSE, 11 * 4, cValuesOf(3 * 4))
 
@@ -71,4 +68,9 @@ fun k3dCreateVAO(points:  FloatArray, program: UInt): UInt {
 
     }
 
+}
+
+fun k3dUpdate(){
+    glfwPollEvents()
+    glClear((GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT).convert())
 }

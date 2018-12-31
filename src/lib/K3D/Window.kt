@@ -7,6 +7,7 @@ import kotlin.system.exitProcess
 
 typealias K3DWindow = CPointer<GLFWwindow>?
 
+var K3D_WINDOW: K3DWindow = null
 val windowHints = mutableListOf<GLFWHint>()
 
 class GLFWHint(val hint: Int, val boolVal: Int) {
@@ -40,12 +41,13 @@ fun k3dCreateWindow(appName: String, windowWidth: Int, windowHeight: Int): K3DWi
         glfwWindowHint(it.hint, it.boolVal)
     }
 
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE)
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE)
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4)
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1)
 
-    k3dWindow = glfwCreateWindow(windowWidth, windowHeight, appName, null, null);
+    k3dWindow = glfwCreateWindow(windowWidth, windowHeight, appName, null, null)
+    K3D_WINDOW = k3dWindow
 
     if (k3dWindow == null) {
         println("GLFW Window Creation Failed")

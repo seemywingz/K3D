@@ -3,12 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="b7f5ef0a-aaa0-49f6-96b0-7508f36ac9fc" name="Default Changelist" comment="remove GLUT support">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/konan/bin/macos_x64/K3DTriangle.kexe" beforeDir="false" afterPath="$PROJECT_DIR$/build/konan/bin/macos_x64/K3DTriangle.kexe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/konan/libs/macos_x64/K3D.klib" beforeDir="false" afterPath="$PROJECT_DIR$/build/konan/libs/macos_x64/K3D.klib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/examples/K3DTriangle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/examples/K3DTriangle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/konan/libs/macos_x64/glfw.klib" beforeDir="false" afterPath="$PROJECT_DIR$/build/konan/libs/macos_x64/glfw.klib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/konan/libs/macos_x64/glfw.klib-build/manifest.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/konan/libs/macos_x64/glfw.klib-build/manifest.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/konan/libs/macos_x64/glfw.klib-build/natives/cstubs.bc" beforeDir="false" afterPath="$PROJECT_DIR$/build/konan/libs/macos_x64/glfw.klib-build/natives/cstubs.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/konan/libs/macos_x64/openGL.klib-build/manifest.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/konan/libs/macos_x64/openGL.klib-build/manifest.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/konan/libs/macos_x64/openGL.klib-build/natives/cstubs.bc" beforeDir="false" afterPath="$PROJECT_DIR$/build/konan/libs/macos_x64/openGL.klib-build/natives/cstubs.bc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cinterops/glfw.def" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/cinterops/glfw.def" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cinterops/openGL.def" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/cinterops/openGL.def" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/examples/K3DTriangle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/examples/K3DTriangle.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/K3D/K3D.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/K3D/K3D.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/K3D/Shaders.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/K3D/Shaders.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/K3D/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/K3D/Utils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/K3D/Window.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/K3D/Window.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -54,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/K3D/K3D.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-20">
-              <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+            <state relative-caret-position="1500">
+              <caret line="75" selection-start-line="75" selection-end-line="75" />
               <folding>
                 <element signature="e#13#54#0" expanded="true" />
               </folding>
@@ -66,22 +73,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/K3D/Window.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="252">
+              <caret line="86" column="20" lean-forward="true" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="20" />
               <folding>
+                <element signature="e#13#101#0" expanded="true" />
                 <element signature="n#!!block;n#k3dWindowHint#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/K3D/Shaders.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="121" column="101" selection-start-line="121" selection-start-column="101" selection-end-line="121" selection-end-column="101" />
+            <state relative-caret-position="429">
+              <caret line="115" selection-start-line="115" selection-end-line="115" />
               <folding>
                 <element signature="e#13#118#0" expanded="true" />
+                <element signature="e#181#274#0" />
+                <element signature="e#313#738#0" />
               </folding>
             </state>
           </provider>
@@ -90,20 +100,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/K3D/Utils.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+            <state relative-caret-position="60">
+              <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/resources/examples/K3DTriangle.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
               <folding>
-                <element signature="e#14#96#0" expanded="true" />
+                <element signature="e#0#54#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/examples/K3DTriangle.kt">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="15" selection-end-line="2" selection-end-column="25" />
+            <state relative-caret-position="297">
+              <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -197,14 +216,15 @@
         <option value="$PROJECT_DIR$/src/lib/K3D/K3DWindow.kt" />
         <option value="$PROJECT_DIR$/src/lib/K3D/Camera.kt.kt" />
         <option value="$PROJECT_DIR$/src/lib/K3D/Camera.kt" />
-        <option value="$PROJECT_DIR$/src/lib/K3D/Window.kt" />
         <option value="$PROJECT_DIR$/src/examples/Cube.kt" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/lib/K3D/K3D.kt" />
         <option value="$PROJECT_DIR$/src/examples/K3DTriangle.kt" />
-        <option value="$PROJECT_DIR$/src/lib/K3D/Utils.kt" />
+        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/lib/K3D/Shaders.kt" />
+        <option value="$PROJECT_DIR$/src/lib/K3D/Utils.kt" />
+        <option value="$PROJECT_DIR$/src/lib/K3D/Window.kt" />
+        <option value="$PROJECT_DIR$/src/lib/K3D/K3D.kt" />
+        <option value="$PROJECT_DIR$/src/resources/examples/K3DTriangle.kt" />
       </list>
     </option>
   </component>
@@ -240,6 +260,19 @@
               <item name="K3D" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="K3D" type="b2602c69:ProjectViewProjectNode" />
+              <item name="K3D" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="K3D" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="K3D" type="b2602c69:ProjectViewProjectNode" />
+              <item name="K3D" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -439,7 +472,7 @@
       <workItem from="1545536277299" duration="59012000" />
       <workItem from="1546207731991" duration="330000" />
       <workItem from="1546208079596" duration="240000" />
-      <workItem from="1546208325331" duration="26219000" />
+      <workItem from="1546208325331" duration="27628000" />
     </task>
     <task id="LOCAL-00001" summary="remove GLUT support">
       <created>1545842981031</created>
@@ -452,7 +485,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115899000" />
+    <option name="totallyTimeSpent" value="117308000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -501,6 +534,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="remove GLUT support" />
     <option name="LAST_COMMIT_MESSAGE" value="remove GLUT support" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-field">
+          <url>file://$PROJECT_DIR$/src/lib/K3D/Shaders.kt</url>
+          <line>9</line>
+          <properties myFieldName="K3D_SHADER_BASIC_FRAG" myClassName="K3D.ShadersKt" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/test/kotlin/sample/SampleTests.kt">
@@ -565,7 +610,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cinterops/glfw.def">
+    <entry file="file://$PROJECT_DIR$/src/resources/cinterops/glfw.def">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="40" lean-forward="true" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
@@ -579,13 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/shaders/basicFrag.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -609,7 +647,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cinterops/openGL.def">
+    <entry file="file://$PROJECT_DIR$/src/resources/cinterops/openGL.def">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
@@ -640,56 +678,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/shaders/blinnPhongFrag.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-114" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/shaders/basicFrag.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/K3D/Shaders.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="115" selection-start-line="115" selection-end-line="115" />
+          <folding>
+            <element signature="e#13#118#0" expanded="true" />
+            <element signature="e#181#274#0" />
+            <element signature="e#313#738#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/K3D/Utils.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/K3D/K3D.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        <state relative-caret-position="1500">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
           <folding>
             <element signature="e#13#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/K3D/Window.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="252">
+          <caret line="86" column="20" lean-forward="true" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="20" />
           <folding>
+            <element signature="e#13#101#0" expanded="true" />
             <element signature="n#!!block;n#k3dWindowHint#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/examples/K3DTriangle.kt">
+    <entry file="file://$PROJECT_DIR$/src/resources/examples/K3DTriangle.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="15" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/K3D/Utils.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        <state relative-caret-position="80">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
           <folding>
-            <element signature="e#14#96#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/K3D/Shaders.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="121" column="101" selection-start-line="121" selection-start-column="101" selection-end-line="121" selection-end-column="101" />
-          <folding>
-            <element signature="e#13#118#0" expanded="true" />
+            <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>

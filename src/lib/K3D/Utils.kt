@@ -7,12 +7,6 @@ import kotlin.system.exitProcess
 fun Boolean.toInt() = if (this) 1 else 0
 fun Int.toBoolean() = if (this == 0) true else false
 
-val K3D_SHAPE_TRIANGLE = floatArrayOf(
-    -1f, -1f, 0f, 1f, 0f, 0f, 0f, 1f, 0f, 0f, 0f,
-    0f, 1f, 0f, 0f, 0f, 0f, 0f, 1f, 0f, 0f, 0f,
-    1f, -1f, 0f, 1f, 1f, 0f, 0f, 1f, 0f, 0f, 0f
-)
-
 fun readFileAsString(fileName: String): String {
 
     var data = ""
@@ -38,3 +32,9 @@ fun readFileAsString(fileName: String): String {
 
     return data
 }
+
+val K3D_SHAPE_TRIANGLE = floatArrayOf(
+    -1f, -1f, 0f, 1f, 0f, 0f, 0f, 1f, 0f, 0f, 0f,
+    0f, 1f, 0f, 0f, 0f, 0f, 0f, 1f, 0f, 0f, 0f,
+    1f, -1f, 0f, 1f, 1f, 0f, 0f, 1f, 0f, 0f, 0f
+)

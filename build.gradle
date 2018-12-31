@@ -7,11 +7,11 @@ konan.targets = [ 'macos_x64' ]
 konanArtifacts {
 
     interop('openGL'){
-        defFile 'src/cinterops/openGL.def'
+        defFile 'src/resources/cinterops/openGL.def'
     }
 
     interop('glfw'){
-        defFile 'src/cinterops/glfw.def'
+        defFile 'src/resources/cinterops/glfw.def'
     }
 
     library('K3D') {
@@ -27,6 +27,6 @@ konanArtifacts {
             artifact 'openGL'
             artifact 'K3D'
         }
-        srcFiles fileTree('src/examples/K3DTriangle.kt')
+        srcFiles fileTree('src/resources/examples/K3DTriangle.kt')
     }
 }
