@@ -23,10 +23,26 @@ fun k3dWindowHint(hint: String, boolVal: Boolean) {
         "auto_iconify" -> windowHints.add(GLFWHint(GLFW_AUTO_ICONIFY, boolVal.toInt()))
         "maximized" -> windowHints.add(GLFWHint(GLFW_MAXIMIZED, boolVal.toInt()))
         else -> { // Note the block
-            print("'${hint}' doesn't match any K3D or GLFW k3dWindow hints")
+            print("'${hint}' doesn't match any K3D or GLFW Window hints")
         }
     }
 }
+
+//class Window(windowWidth: Int, windowHeight: Int, windowName: String){
+//    var
+//
+//    inti{
+//        if (glfwInit() != GL_TRUE) {
+//            println("GLFW Initialization Failed")
+//            exitProcess(100)
+//        }
+//
+//        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE)
+//        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE)
+//        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4)
+//        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1)
+//    }
+//}
 
 fun k3dCreateWindow(windowWidth: Int, windowHeight: Int, windowName: String): K3DWindow {
 
