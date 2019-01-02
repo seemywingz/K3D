@@ -5,10 +5,11 @@ import cglm.*
 import kotlinx.cinterop.*
 
 var k3dProjectionMatrix = FloatArray(16)
+lateinit var window: K3DWindow
 
 fun k3dInit(windowWidth: Int, windowHeight: Int, windowName: String): K3DWindow {
 
-    val k3dWindow = k3dCreateWindow(windowWidth, windowHeight, windowName)
+    window = K3DWindow(windowWidth, windowHeight, windowName)
 
     // print OpenGL Version and Renderer
     println(glGetString(GL_VERSION))
@@ -21,7 +22,7 @@ fun k3dInit(windowWidth: Int, windowHeight: Int, windowName: String): K3DWindow 
 
     k3dInitShaders()
 
-    return k3dWindow
+    return window
 }
 
 fun k3dSetPerspective(width: Int, height: Int) {
@@ -72,9 +73,4 @@ fun k3dCreateVAO(points:  FloatArray, program: UInt): UInt {
 
     }
 
-}
-
-fun k3dUpdate(){
-    k3dPollEvents()
-    glClear((GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT).convert())
 }
