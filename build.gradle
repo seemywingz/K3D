@@ -14,18 +14,23 @@ konanArtifacts {
         defFile 'src/resources/cinterops/glfw.def'
     }
 
-    library('K3D') {
-        srcFiles fileTree('src/lib/K3D')
+    interop('cglm'){
+        defFile 'src/resources/cinterops/cglm.def'
+    }
+
+    library('k3d') {
+        srcFiles fileTree('src/lib/k3d')
         libraries {
             artifact 'openGL'
             artifact 'glfw'
+            artifact 'cglm'
         }
     }
 
     program('K3DTriangle') {
         libraries {
             artifact 'openGL'
-            artifact 'K3D'
+            artifact 'k3d'
         }
         srcFiles fileTree('src/resources/examples/K3DTriangle.kt')
     }

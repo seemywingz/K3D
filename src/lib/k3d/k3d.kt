@@ -1,11 +1,14 @@
-package K3D
+package k3d
 
 import openGL.*
+import cglm.*
 import kotlinx.cinterop.*
 
-fun k3dInit(appName: String, windowWidth: Int, windowHeight: Int): K3DWindow {
+var k3dProjectionMatrix = FloatArray(16)
 
-    val k3dWindow = k3dCreateWindow(appName, windowWidth, windowHeight)
+fun k3dInit(windowWidth: Int, windowHeight: Int, windowName: String): K3DWindow {
+
+    val k3dWindow = k3dCreateWindow(windowWidth, windowHeight, windowName)
 
     // print OpenGL Version and Renderer
     println(glGetString(GL_VERSION))
@@ -21,15 +24,16 @@ fun k3dInit(appName: String, windowWidth: Int, windowHeight: Int): K3DWindow {
     return k3dWindow
 }
 
-fun k3dSetPerspective(windowWidth: Int, windowHeight: Int){
+fun k3dSetPerspective(width: Int, height: Int) {
 
-    // set the viewport
-    glViewport(0, 0, windowWidth, windowHeight)
-
-    val aspect = windowWidth.toDouble() / windowHeight
-
-    // set up a perspective projection matrix
-    gluPerspective(45.0, aspect, 1.0, 500.0)
+        // Projection matrix :
+        //    45° Field of View,
+        //    width:height ratio,
+        //    display range : 0.1 unit <-> 1000 units
+        val ratio = width.toFloat() / height
+        val matrix = mat4FromFloatArray(k3dProjectionMatrix)
+        glm_perspective(glm_rad(45.0f), ratio, 0.1f, 1000f, matrix)
+        k3dProjectionMatrix.setFromMat4(matrix)
 
 }
 
@@ -71,6 +75,6 @@ fun k3dCreateVAO(points:  FloatArray, program: UInt): UInt {
 }
 
 fun k3dUpdate(){
-    glfwPollEvents()
+    k3dPollEvents()
     glClear((GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT).convert())
 }

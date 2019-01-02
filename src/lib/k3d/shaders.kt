@@ -1,4 +1,4 @@
-package K3D
+package k3d
 
 import openGL.*
 import kotlinx.cinterop.*
@@ -6,7 +6,6 @@ import platform.OpenGLCommon.*
 import kotlin.system.exitProcess
 
 var K3D_SHADER_BASIC: UInt = 0u
-
 val K3D_SHADER_BASIC_FRAG = """
 #version 410
 
@@ -17,7 +16,6 @@ void main() {
 }
 
 """.trimIndent()
-
 val K3D_SHADER_VERTEX = """
 #version 410 core
 
@@ -59,7 +57,7 @@ fun compileShader(shaderType: Int, shaderSourceCode: String): UInt {
 
         if ( status.value == GL_FALSE ){
 
-            var logLength = alloc<IntVar>()
+            val logLength = alloc<IntVar>()
             glGetShaderiv(shader, GL_INFO_LOG_LENGTH, logLength.ptr)
 
             val log = "".cstr.getPointer(memScope)

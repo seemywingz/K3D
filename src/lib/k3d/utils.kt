@@ -1,11 +1,28 @@
-package K3D
+package k3d
 
+import cglm.*
 import platform.posix.*
 import kotlinx.cinterop.*
 import kotlin.system.exitProcess
 
 fun Boolean.toInt() = if (this) 1 else 0
-fun Int.toBoolean() = if (this == 0) true else false
+fun Int.toBoolean() = if (this == 1) true else false
+
+fun FloatArray.setFromMat4(mat: mat4) {
+        for (i in this.indices) {
+        this[i] = mat[i]
+    }
+}
+
+fun mat4FromFloatArray(array: FloatArray): mat4 {
+    memScoped {
+        val matrix = nativeHeap.allocArray<FloatVar>(array.size)
+        for (i in array.indices) {
+            matrix[i] = array[i]
+        }
+        return matrix
+    }
+}
 
 fun readFileAsString(fileName: String): String {
 

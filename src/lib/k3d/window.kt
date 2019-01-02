@@ -1,4 +1,4 @@
-package K3D
+package k3d
 
 import glfw.*
 import openGL.*
@@ -28,9 +28,7 @@ fun k3dWindowHint(hint: String, boolVal: Boolean) {
     }
 }
 
-fun k3dCreateWindow(appName: String, windowWidth: Int, windowHeight: Int): K3DWindow {
-
-    var k3dWindow: K3DWindow
+fun k3dCreateWindow(windowWidth: Int, windowHeight: Int, windowName: String): K3DWindow {
 
     if (glfwInit() != GL_TRUE) {
         println("GLFW Initialization Failed")
@@ -46,33 +44,26 @@ fun k3dCreateWindow(appName: String, windowWidth: Int, windowHeight: Int): K3DWi
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1)
 
-    k3dWindow = glfwCreateWindow(windowWidth, windowHeight, appName, null, null)
-    K3D_WINDOW = k3dWindow
+    K3D_WINDOW = glfwCreateWindow(windowWidth, windowHeight, windowName, null, null)
 
-    if (k3dWindow == null) {
+    if (K3D_WINDOW == null) {
         println("GLFW Window Creation Failed")
         glfwTerminate()
         exitProcess(101)
     }
 
-    glfwMakeContextCurrent(k3dWindow)
+    glfwMakeContextCurrent(K3D_WINDOW)
 
-    val onResize = staticCFunction({ window: CPointer<GLFWwindow>?, _: Int, _: Int ->
+    val onResize = staticCFunction({ window: CPointer<GLFWwindow>?, width: Int, height: Int ->
         memScoped {
-//            k3dCamera.setPerspectiveViewport(width, height)
-            // re-implement the macOS Mojave workaround unbounded
-            val xpos = alloc<IntVar>()
-            val ypos = alloc<IntVar>()
-            glfwGetWindowPos(window, xpos.ptr, ypos.ptr)
-            glfwSetWindowPos(window, xpos.value + 1, ypos.value)
-            glfwGetWindowPos(window, xpos.ptr, ypos.ptr)
-            glfwSetWindowPos(window, xpos.value - 1, ypos.value)
+            k3dSetPerspective(width, height)
+            k3dWindowMojaveWorkaround(window)
         }
     })
 
-    glfwSetWindowSizeCallback(k3dWindow, onResize)
+    glfwSetWindowSizeCallback(K3D_WINDOW, onResize)
 
-    return k3dWindow
+    return K3D_WINDOW
 }
 
 fun k3dWindowShouldClose(window: K3DWindow): Boolean {
