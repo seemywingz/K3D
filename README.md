@@ -1,6 +1,6 @@
 K3D
 ---
-###### Kotlin/Native OpenGL Graphics Library (OpenGL 4.1 ans GLFW Wrapper)
+###### Kotlin/Native OpenGL Graphics Library (OpenGL 4.1 and GLFW Wrapper)
 
 
 ### Prerequisites  
