@@ -17,6 +17,7 @@ void main() {
 }
 
 """.trimIndent()
+
 val K3DVertexShader = """
 #version 410 core
 
@@ -42,9 +43,8 @@ void main(){
 
 """.trimIndent()
 
-
 // CompileShader : compiles GLSL shader from provided source code
-fun compileShader(shaderType: Int, shaderSourceCode: String): UInt {
+fun k3dCompileShader(shaderType: Int, shaderSourceCode: String): UInt {
 
     memScoped {
 
@@ -77,8 +77,8 @@ fun compileShader(shaderType: Int, shaderSourceCode: String): UInt {
 fun k3dCreateShader(vertexSource: String, fragmentSource: String): UInt{
 
     memScoped {
-        val vertexShader = compileShader(GL_VERTEX_SHADER, vertexSource)
-        val fragmentShader = compileShader(GL_FRAGMENT_SHADER, fragmentSource)
+        val vertexShader = k3dCompileShader(GL_VERTEX_SHADER, vertexSource)
+        val fragmentShader = k3dCompileShader(GL_FRAGMENT_SHADER, fragmentSource)
 
         val program = glCreateProgram()
         glAttachShader(program, vertexShader)
