@@ -49,9 +49,3 @@ fun readFileAsString(fileName: String): String {
 
     return data
 }
-
-val K3D_SHAPE_TRIANGLE = floatArrayOf(
-    -1f, -1f, 0f, 1f, 0f, 0f, 0f, 1f, 0f, 0f, 0f,
-    0f, 1f, 0f, 0f, 0f, 0f, 0f, 1f, 0f, 0f, 0f,
-    1f, -1f, 0f, 1f, 1f, 0f, 0f, 1f, 0f, 0f, 0f
-)

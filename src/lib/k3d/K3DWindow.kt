@@ -5,28 +5,6 @@ import openGL.*
 import kotlinx.cinterop.*
 import kotlin.system.exitProcess
 
-//typealias K3DWindow = CPointer<GLFWwindow>?
-
-val windowHints = mutableListOf<GLFWHint>()
-
-class GLFWHint(val hint: Int, val boolVal: Int) {
-}
-
-fun k3dWindowHint(hint: String, boolVal: Boolean) {
-    when (hint) {
-        "floating" -> windowHints.add(GLFWHint(GLFW_FLOATING, boolVal.toInt()))
-        "resizable" -> windowHints.add(GLFWHint(GLFW_RESIZABLE, boolVal.toInt()))
-        "visable" -> windowHints.add(GLFWHint(GLFW_VISIBLE, boolVal.toInt()))
-        "decorated" -> windowHints.add(GLFWHint(GLFW_DECORATED, boolVal.toInt()))
-        "focused" -> windowHints.add(GLFWHint(GLFW_FOCUSED, boolVal.toInt()))
-        "auto_iconify" -> windowHints.add(GLFWHint(GLFW_AUTO_ICONIFY, boolVal.toInt()))
-        "maximized" -> windowHints.add(GLFWHint(GLFW_MAXIMIZED, boolVal.toInt()))
-        else -> { // Note the block
-            print("'${hint}' doesn't match any K3D or GLFW Window hints")
-        }
-    }
-}
-
 class K3DWindow(windowWidth: Int, windowHeight: Int, windowName: String){
 
     var glfwWindow: CPointer<GLFWwindow>? = null
@@ -37,7 +15,7 @@ class K3DWindow(windowWidth: Int, windowHeight: Int, windowName: String){
             exitProcess(100)
         }
 
-        windowHints.forEach {
+        k3dWindowHints.forEach {
             glfwWindowHint(it.hint, it.boolVal)
         }
 
@@ -91,6 +69,21 @@ class K3DWindow(windowWidth: Int, windowHeight: Int, windowName: String){
 
     fun terminate(){
         glfwTerminate()
+    }
+}
+
+fun k3dWindowHint(hint: String, boolVal: Boolean) {
+    when (hint) {
+        "floating" -> k3dWindowHints.add( K3DWindowHint( GLFW_FLOATING, boolVal.toInt() ))
+        "resizable" -> k3dWindowHints.add( K3DWindowHint( GLFW_RESIZABLE, boolVal.toInt() ))
+        "visable" -> k3dWindowHints.add( K3DWindowHint( GLFW_VISIBLE, boolVal.toInt() ))
+        "decorated" -> k3dWindowHints.add( K3DWindowHint( GLFW_DECORATED, boolVal.toInt() ))
+        "focused" -> k3dWindowHints.add( K3DWindowHint( GLFW_FOCUSED, boolVal.toInt() ))
+        "auto_iconify" -> k3dWindowHints.add( K3DWindowHint( GLFW_AUTO_ICONIFY, boolVal.toInt() ))
+        "maximized" -> k3dWindowHints.add( K3DWindowHint( GLFW_MAXIMIZED, boolVal.toInt() ))
+        else -> { // Note the block
+            print("'${hint}' doesn't match any K3D or GLFW Window hints")
+        }
     }
 }
 

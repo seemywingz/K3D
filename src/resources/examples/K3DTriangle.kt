@@ -6,13 +6,13 @@ fun main(){
 
     k3dWindowHint("floating", true)
     val window = k3dInit(500, 500, "K3D Triangle")
-    val triangleVAO = k3dCreateVAO(K3D_SHAPE_TRIANGLE, K3D_SHADER_BASIC)
+    val triangleVAO = k3dCreateVAO( K3DTriangle, K3DBasicShader)
 
     while ( !window.shouldClose() ){
 
         window.update()
 
-        glUseProgram(K3D_SHADER_BASIC)
+        glUseProgram(K3DBasicShader)
 
         glBindVertexArray(triangleVAO)
         glDrawArrays(GL_TRIANGLES, 0, 3)

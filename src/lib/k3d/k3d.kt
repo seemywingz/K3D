@@ -11,7 +11,7 @@ fun k3dInit(windowWidth: Int, windowHeight: Int, windowName: String): K3DWindow 
 
     window = K3DWindow(windowWidth, windowHeight, windowName)
 
-    // print OpenGL Version and Renderer
+    // TODO: print OpenGL Version and Renderer
     println(glGetString(GL_VERSION))
     println(glGetString(GL_RENDERER))
 
