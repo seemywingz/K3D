@@ -42,6 +42,7 @@ class K3DObject private constructor(val position: K3DPosition, val program: UInt
 
     }
 
+    // TODO: add mat4 matrix translation and rotation
 //    fun translateRotate(): mat4 {
 //
 //        val model = cPointerOfFloatArray(FloatArray(16))
@@ -59,6 +60,7 @@ class K3DObject private constructor(val position: K3DPosition, val program: UInt
 //        return model
 //    }
 
+    // TODO: Draw the object
 //    fun draw(){
 //        val modelMatrix := d.translateRotate()
 //        val normalMatrix := modelMatrix.Inv().Transpose()

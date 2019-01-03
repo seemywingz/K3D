@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7f5ef0a-aaa0-49f6-96b0-7508f36ac9fc" name="Default Changelist" comment="remove GLUT support">
-      <change afterPath="$PROJECT_DIR$/src/lib/k3d/K3DConstants.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/k3d/K3DTexture.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/k3d/K3DUtilityClasses.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/k3d/K3DObject.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/k3d/K3DObject.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/k3d/k3d.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/k3d/k3d.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/k3d/shaders.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/k3d/K3DShaders.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/k3d/texture.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/k3d/utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/k3d/K3DUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/k3d/vars.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/k3d/K3DVars.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -73,17 +64,16 @@
               <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
               <folding>
                 <element signature="e#13#68#0" expanded="true" />
-                <element signature="n#!!block;n#k3dCreateVAO#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DObject.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="237">
+              <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
               <folding>
                 <element signature="e#14#116#0" expanded="true" />
                 <element signature="n#!!block;n#K3DObject#0;n#!!block;n#K3DObject#0" />
@@ -92,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DUtilityClasses.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
+            <state relative-caret-position="380">
               <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
@@ -217,10 +207,10 @@
         <option value="$PROJECT_DIR$/src/lib/k3d/texture.kt" />
         <option value="$PROJECT_DIR$/src/lib/k3d/K3DDataClasses.kt" />
         <option value="$PROJECT_DIR$/src/lib/k3d/utils.kt" />
-        <option value="$PROJECT_DIR$/src/lib/k3d/K3DObject.kt" />
         <option value="$PROJECT_DIR$/src/lib/k3d/K3DUtilityClasses.kt" />
         <option value="$PROJECT_DIR$/src/lib/k3d/K3DUtils.kt" />
         <option value="$PROJECT_DIR$/src/lib/k3d/k3d.kt" />
+        <option value="$PROJECT_DIR$/src/lib/k3d/K3DObject.kt" />
       </list>
     </option>
   </component>
@@ -481,7 +471,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146880000" />
+    <option name="totallyTimeSpent" value="147109000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -498,10 +488,10 @@
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Learn" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.15522175" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.15522175" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.3394018" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.3394018" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.32769832" />
       <window_info anchor="bottom" id="Database Changes" order="2" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
@@ -514,7 +504,7 @@
       <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="13" weight="0.32899868" />
+      <window_info active="true" anchor="bottom" id="TODO" order="13" visible="true" weight="0.32769832" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info anchor="right" id="Maven" order="2" />
@@ -742,14 +732,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DObject.kt">
+    <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DUtilityClasses.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="e#14#116#0" expanded="true" />
-            <element signature="n#!!block;n#K3DObject#0;n#!!block;n#K3DObject#0" />
-          </folding>
+        <state relative-caret-position="380">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -759,15 +745,18 @@
           <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
           <folding>
             <element signature="e#13#68#0" expanded="true" />
-            <element signature="n#!!block;n#k3dCreateVAO#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DUtilityClasses.kt">
+    <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DObject.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="237">
+          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+          <folding>
+            <element signature="e#14#116#0" expanded="true" />
+            <element signature="n#!!block;n#K3DObject#0;n#!!block;n#K3DObject#0" />
+          </folding>
         </state>
       </provider>
     </entry>
