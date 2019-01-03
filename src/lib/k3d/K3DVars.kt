@@ -1,14 +1,6 @@
 package k3d
 
-//typealias K3DPoints: FloatArray
-
 val k3dWindowHints = mutableListOf<K3DWindowHint>()
-
-class K3DPosition(var x: Float, var y: Float){
-}
-
-class K3DWindowHint(val hint: Int, val boolVal: Int) {
-}
 
 val K3DTriangle= floatArrayOf(
     -1f, -1f, 0f, 1f, 0f, 0f, 0f, 1f, 0f, 0f, 0f,

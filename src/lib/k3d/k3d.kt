@@ -4,7 +4,7 @@ import openGL.*
 import cglm.*
 import kotlinx.cinterop.*
 
-var k3dProjectionMatrix = FloatArray(16)
+var k3dProjectionMatrix = K3DMat4( FloatArray(16) )
 lateinit var window: K3DWindow
 
 fun k3dInit(windowWidth: Int, windowHeight: Int, windowName: String): K3DWindow {
@@ -27,14 +27,15 @@ fun k3dInit(windowWidth: Int, windowHeight: Int, windowName: String): K3DWindow 
 
 fun k3dSetPerspective(width: Int, height: Int) {
 
-        // Projection matrix :
-        //    45° Field of View,
-        //    width:height ratio,
-        //    display range : 0.1 unit <-> 1000 units
-        val ratio = width.toFloat() / height
-        val matrix = mat4FromFloatArray(k3dProjectionMatrix)
-        glm_perspective(glm_rad(45.0f), ratio, 0.1f, 1000f, matrix)
-        k3dProjectionMatrix.setFromMat4(matrix)
+    // Projection matrix :
+    //    45° Field of View,
+    //    width:height ratio,
+    //    display range : 0.1 unit <-> 1000 units
+    val ratio = width.toFloat() / height
+    glm_perspective(glm_rad(45.0f), ratio, 0.1f, 1000f, k3dProjectionMatrix.ptr)
+    k3dProjectionMatrix.update()
+//    println("\nAFTER RESIZE:")
+//    k3dProjectionMatrix.print()
 
 }
 
