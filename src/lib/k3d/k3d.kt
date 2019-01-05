@@ -4,40 +4,20 @@ import openGL.*
 import cglm.*
 import kotlinx.cinterop.*
 
-var k3dProjectionMatrix = K3DMat4( FloatArray(16) )
-lateinit var window: K3DWindow
+lateinit var k3dWindow: K3DWindow
+lateinit var k3dCamera: K3DCamera
 
-fun k3dInit(windowWidth: Int, windowHeight: Int, windowName: String): K3DWindow {
+fun K3DInit(windowWidth: Int, windowHeight: Int, windowName: String): K3DWindow {
 
-    window = K3DWindow(windowWidth, windowHeight, windowName)
+    k3dWindow = K3DWindow(windowWidth, windowHeight, windowName)
 
-    // TODO: print OpenGL Version and Renderer
-    println(glGetString(GL_VERSION))
-    println(glGetString(GL_RENDERER))
-
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
-    glEnable(GL_BLEND)
-
-    k3dSetPerspective(windowWidth, windowHeight)
+    k3dCamera = K3DCamera(windowWidth, windowHeight)
 
     k3dInitShaders()
 
-    return window
+    return k3dWindow
 }
 
-fun k3dSetPerspective(width: Int, height: Int) {
-
-    // Projection matrix :
-    //    45° Field of View,
-    //    width:height ratio,
-    //    display range : 0.1 unit <-> 1000 units
-    val ratio = width.toFloat() / height
-    glm_perspective(glm_rad(45.0f), ratio, 0.1f, 1000f, k3dProjectionMatrix.ptr)
-    k3dProjectionMatrix.update()
-//    println("\nAFTER RESIZE:")
-//    k3dProjectionMatrix.print()
-
-}
 
 // k3dBuildVAO : initializes and returns a vertex array from the points provided.
 fun k3dCreateVAO(points:  FloatArray, program: UInt): UInt {

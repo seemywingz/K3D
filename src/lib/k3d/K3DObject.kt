@@ -6,9 +6,11 @@ import openGL.*
 import kotlinx.cinterop.*
 import kotlin.system.exitProcess
 
-class K3DObject private constructor(val position: K3DPosition, val program: UInt){
+class K3DObject private constructor(val position: K3DVec3, val program: UInt){
 
     lateinit var mesh: K3DMesh
+    val modelMatrix = K3DMat4(FloatArray(16))
+    val normalMatrix = K3DMat4(FloatArray(16))
 
     val modelMatrixID = glGetUniformLocation(program, "MODEL")
     val normalMatrixID = glGetUniformLocation(program, "NormalMatrix")
@@ -20,11 +22,11 @@ class K3DObject private constructor(val position: K3DPosition, val program: UInt
     val IspecID = glGetUniformLocation(program, uniform+".Ispec")
     val shininessID = glGetUniformLocation(program, uniform+".shininess")
     val textureID = glGetUniformLocation(program, "TEXTURE")
-    val noramalMapID = glGetUniformLocation(program, "NORMAL_MAP")
+    val normalMapID = glGetUniformLocation(program, "NORMAL_MAP")
 
     var scale = 1
 
-    constructor( position: K3DPosition, points: FloatArray, texture: UInt, color: FloatArray, program: UInt )
+    constructor( position: K3DVec3, points: FloatArray, texture: UInt, color: FloatArray, program: UInt )
             : this(position, program) {
 
         val vao = k3dCreateVAO(points, program)
@@ -43,26 +45,63 @@ class K3DObject private constructor(val position: K3DPosition, val program: UInt
     }
 
     // TODO: add mat4 matrix translation and rotation
-//    fun translateRotate(): mat4 {
-//
-//        val model = cPointerOfFloatArray(FloatArray(16))
-//        val pos = K3DVec3( this.position.x, this.position.y, this.position.z)
-//
-//        glm_translate(model, pos.ptr)
-//
-//        model := mgl32.Translate3D(d.X, d.Y, d.Z).
-//        Mul4(mgl32.Scale3D(d.Scale, d.Scale, d.Scale))
-//
+    fun translateRotate(): Unit {
+
+        glm_translate(this.modelMatrix.ptr, this.position.ptr)
+        // TODO: Apply Local Scaling When Calculating translation for k3dobject
+//        glm_mat4_mul(modelMatrix.ptr, K3DVect3())
+
+        // TODO: Aplly local rotation to k3dobject
+//          val xrotMatrix = K3DMat4()
+//          val yrotMatrix = K3DMat4()
+//          val zrotMatrix = K3DMat4()
 //        xrotMatrix := mgl32.HomogRotate3DX(mgl32.DegToRad(d.XRotation))
 //        yrotMatrix := mgl32.HomogRotate3DY(mgl32.DegToRad(d.YRotation))
 //        zrotMatrix := mgl32.HomogRotate3DZ(mgl32.DegToRad(d.ZRotation))
-//        final := model.Mul4(xrotMatrix.Mul4(yrotMatrix.Mul4(zrotMatrix)))
-//        return model
-//    }
+//        final := modelMatrix.Mul4(xrotMatrix.Mul4(yrotMatrix.Mul4(zrotMatrix)))
 
-    // TODO: Draw the object
-//    fun draw(){
-//        val modelMatrix := d.translateRotate()
-//        val normalMatrix := modelMatrix.Inv().Transpose()
-//    }
+    }
+
+    // TODO: Finish Drawing the object
+    fun draw(){
+
+        translateRotate()
+        glm_mat4_inv(this.modelMatrix.ptr, this.normalMatrix.ptr)
+        glm_mat4_transpose(this.normalMatrix.ptr)
+
+        glUseProgram(this.program)
+        glUniformMatrix4fv(this.mvpid, 1, GL_FALSE, k3dCamera.MVP.ptr)
+        glUniformMatrix4fv(this.modelMatrixID, 1, GL_FALSE, this.modelMatrix.ptr)
+        glUniformMatrix4fv(this.normalMatrixID, 1, GL_FALSE, this.normalMatrix.ptr)
+
+        for ((_, m) in this.mesh.materialGroups) {
+            glUseProgram(this.program)
+            glBindVertexArray(m.vao)
+
+            // Material
+            glUniform3fv(this.IambID, 1, m.material.ambient.toCValues())
+            glUniform3fv(this.IspecID, 1, m.material.specular.toCValues())
+            glUniform3fv(this.IdifID, 1, m.material.diffuse.toCValues())
+            glUniform1f(this.shininessID, m.material.shininess)
+
+            glUniform1i(this.textureID, 0)
+            glUniform1i(this.normalMapID, 1)
+
+            // Bind our diffuse texture in Texture Unit 0
+            glActiveTexture(GL_TEXTURE0)
+            glBindTexture(GL_TEXTURE_2D, m.material.diffuseTex)
+
+            glActiveTexture(GL_TEXTURE1)
+            glBindTexture(GL_TEXTURE_2D, m.material.normalTex)
+
+            glDrawArrays(GL_TRIANGLES, 0, m.vertCount)
+
+            glActiveTexture(GL_TEXTURE0)
+            glBindTexture(GL_TEXTURE_2D, 0)
+            glActiveTexture(GL_TEXTURE1)
+            glBindTexture(GL_TEXTURE_2D, 0)
+        }
+
+    }
+
 }

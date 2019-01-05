@@ -36,7 +36,7 @@ class K3DWindow(windowWidth: Int, windowHeight: Int, windowName: String){
 
         val onResize = staticCFunction({ window: CPointer<GLFWwindow>?, width: Int, height: Int ->
             memScoped {
-                k3dSetPerspective(width, height)
+                k3dCamera.setPerspective(width, height)
                 k3dMojaveWorkaround(window)
             }
         })
@@ -59,8 +59,10 @@ class K3DWindow(windowWidth: Int, windowHeight: Int, windowName: String){
     }
 
     fun update(){
+
         glfwPollEvents()
-        glClear((GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT).convert())
+        k3dCamera.update()
+
     }
 
     fun destroy(){

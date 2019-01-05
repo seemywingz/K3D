@@ -2,11 +2,30 @@ package k3d
 
 import kotlinx.cinterop.*
 
-abstract class K3DArrayPointer(val array: FloatArray){
+class K3DVec3(var x: Float = 0f, var y: Float = 0f, var z: Float = 0f){
+
+    val ptr = nativeHeap.allocArray<FloatVar>(3)
+
+    fun update(){
+        this.x = ptr[0]
+        this.y = ptr[1]
+        this.z = ptr[2]
+    }
+
+    fun print(){
+        println("x: ${this.x}")
+        println("y: ${this.y}")
+        println("z: ${this.z}")
+    }
+
+}
+
+class K3DMat4(val array: FloatArray = FloatArray(16)){
 
     val ptr = nativeHeap.allocArray<FloatVar>(this.array.size)
 
     init {
+        if (array.size != 16) throw Exception("K3DMat4: Provided FloatArray Not of Size 16")
         for (i in this.array.indices) {
             ptr[i] = array[i]
         }
@@ -21,31 +40,12 @@ abstract class K3DArrayPointer(val array: FloatArray){
     fun print(){
         this.array.forEach() { println(it) }
     }
-}
 
-class K3DVec3(array: FloatArray = FloatArray(3)){
-
-    init {
-        if (array.size != 3) throw Exception("K3DVec3: Provided FloatArray Not of Size 3")
-    }
-}
-
-class K3DMat4(array: FloatArray = FloatArray(16)) : K3DArrayPointer(array){
-
-    init {
-        if (array.size != 16) throw Exception("K3DMat4: Provided FloatArray Not of Size 16")
-    }
 }
 
 data class K3DWindowHint(
     val hint: Int,
     val boolVal: Int
-)
-
-data class K3DPosition(
-    var x: Float = 0f,
-    var y: Float = 0f,
-    var z: Float = 0f
 )
 
 data class K3DMesh(
