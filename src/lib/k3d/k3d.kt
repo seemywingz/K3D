@@ -3,6 +3,7 @@ package k3d
 import openGL.*
 import cglm.*
 import kotlinx.cinterop.*
+import platform.OpenGLCommon.*
 
 lateinit var k3dWindow: K3DWindow
 lateinit var k3dCamera: K3DCamera
@@ -28,15 +29,16 @@ fun k3dCreateVAO(points:  FloatArray, program: UInt): UInt {
 
         glGenVertexArrays(1, vao.ptr)
         glBindVertexArray(vao.value)
+        println("Generating VBO for VAO: ${vao.value}")
 
         var vbo = alloc<UIntVar>()
         glGenBuffers(1, vbo.ptr)
         glBindBuffer(GL_ARRAY_BUFFER, vbo.value)
-        glBufferData(GL_ARRAY_BUFFER, points.size.toLong() * 4, points.toCValues(), GL_STATIC_DRAW)
+        glBufferData(GL_ARRAY_BUFFER, points.size.toLong(), points.toCValues(), GL_STATIC_DRAW)
 
         var vertAttrib = glGetAttribLocation(program, "vert").toUInt()
         glEnableVertexAttribArray(vertAttrib)
-        glVertexAttribPointer(vertAttrib, 3, GL_FLOAT, GL_FALSE, 11 * 4, cValuesOf(0))
+        glVertexAttribPointer(vertAttrib, 3, GL_FLOAT, GL_FALSE, 11 * 4, cPointerOf(0))
 
         var vertTexCoordAttrib = glGetAttribLocation(program, "vertTexCoord").toUInt()
         glEnableVertexAttribArray(vertTexCoordAttrib)

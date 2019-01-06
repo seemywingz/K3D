@@ -77,6 +77,8 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
         for ((_, m) in this.mesh.materialGroups) {
             glUseProgram(this.program)
             glBindVertexArray(m.vao)
+            //  println("Drawing VAO: ${m.vao}")
+
 
             // Material
             glUniform3fv(this.IambID, 1, m.material.ambient.toCValues())
