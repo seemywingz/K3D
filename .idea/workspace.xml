@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b7f5ef0a-aaa0-49f6-96b0-7508f36ac9fc" name="Default Changelist" comment="remove GLUT support">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/k3d/K3DObject.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/k3d/K3DObject.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/k3d/k3d.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/k3d/k3d.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/examples/K3DTriangle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/examples/K3DTriangle.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -51,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/konan/libs/macos_x64/openGL.klib-build/kotlin/openGL/openGL.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="746" column="16" selection-start-line="746" selection-start-column="4" selection-end-line="746" selection-end-column="16" />
+            <state relative-caret-position="136">
+              <caret line="3448" column="27" selection-start-line="3448" selection-start-column="21" selection-end-line="3448" selection-end-column="27" />
               <folding>
                 <element signature="e#107#2329#0" expanded="true" />
               </folding>
@@ -63,8 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lib/k3d/k3d.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="40" column="81" selection-start-line="40" selection-start-column="81" selection-end-line="40" selection-end-column="81" />
+            <state relative-caret-position="248">
+              <caret line="40" column="85" selection-start-line="40" selection-start-column="73" selection-end-line="40" selection-end-column="85" />
               <folding>
                 <element signature="e#13#99#0" expanded="true" />
               </folding>
@@ -75,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DShaders.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="295">
+              <caret line="104" column="22" lean-forward="true" selection-start-line="103" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
               <folding>
                 <element signature="e#13#118#0" expanded="true" />
                 <element signature="e#180#273#0" />
@@ -192,13 +190,13 @@
       <find>glUniform3fv</find>
       <find>GLfloatVar</find>
       <find>mat4_ide</find>
-      <find>offset</find>
       <find>glintptr</find>
-      <find>glVertexAttribPointer</find>
       <find>glfloat</find>
       <find>vertc</find>
       <find>glBufferData</find>
       <find>vao</find>
+      <find>glVertexAttribPointer</find>
+      <find>offset</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -218,7 +216,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/kotlin/example/Simple.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/K3D/K3D.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/example/Cube.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/example/TeaPot.kt" />
@@ -269,6 +266,7 @@
         <option value="$PROJECT_DIR$/src/resources/examples/K3DTriangle.kt" />
         <option value="$PROJECT_DIR$/src/lib/k3d/K3DObject.kt" />
         <option value="$PROJECT_DIR$/src/lib/k3d/k3d.kt" />
+        <option value="$PROJECT_DIR$/src/lib/k3d/K3DShaders.kt" />
       </list>
     </option>
   </component>
@@ -536,7 +534,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161219000" />
+    <option name="totallyTimeSpent" value="162294000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -556,16 +554,16 @@
       <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.15522175" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.33827493" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.33827493" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.32769832" />
       <window_info anchor="bottom" id="Database Changes" order="2" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="4" weight="0.3159948" />
+      <window_info anchor="bottom" id="Build" order="4" weight="0.31536388" />
       <window_info anchor="bottom" id="Messages" order="5" weight="0.32899868" />
       <window_info anchor="bottom" id="Docker" order="6" weight="0.32899868" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32769832" />
-      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.32614556" />
+      <window_info anchor="bottom" id="Run" order="9" weight="0.32614556" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
@@ -774,32 +772,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DShaders.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#13#118#0" expanded="true" />
-            <element signature="e#180#273#0" />
-            <element signature="e#310#735#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/shaders/Vert.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/konan/libs/macos_x64/openGL.klib-build/kotlin/openGL/openGL.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="746" column="16" selection-start-line="746" selection-start-column="4" selection-end-line="746" selection-end-column="16" />
-          <folding>
-            <element signature="e#107#2329#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -830,10 +806,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/build/konan/libs/macos_x64/openGL.klib-build/kotlin/openGL/openGL.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="3448" column="27" selection-start-line="3448" selection-start-column="21" selection-end-line="3448" selection-end-column="27" />
+          <folding>
+            <element signature="e#107#2329#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DShaders.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="104" column="22" lean-forward="true" selection-start-line="103" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
+          <folding>
+            <element signature="e#13#118#0" expanded="true" />
+            <element signature="e#180#273#0" />
+            <element signature="e#310#735#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/k3d/k3d.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="40" column="81" selection-start-line="40" selection-start-column="81" selection-end-line="40" selection-end-column="81" />
+        <state relative-caret-position="248">
+          <caret line="40" column="85" selection-start-line="40" selection-start-column="73" selection-end-line="40" selection-end-column="85" />
           <folding>
             <element signature="e#13#99#0" expanded="true" />
           </folding>

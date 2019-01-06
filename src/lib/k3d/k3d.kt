@@ -38,7 +38,7 @@ fun k3dCreateVAO(points:  FloatArray, program: UInt): UInt {
 
         var vertAttrib = glGetAttribLocation(program, "vert").toUInt()
         glEnableVertexAttribArray(vertAttrib)
-        glVertexAttribPointer(vertAttrib, 3, GL_FLOAT, GL_FALSE, 11 * 4, cPointerOf(0))
+        glVertexAttribPointer(vertAttrib, 3, GL_FLOAT, GL_FALSE, 11 * 4, cValuesOf(0))
 
         var vertTexCoordAttrib = glGetAttribLocation(program, "vertTexCoord").toUInt()
         glEnableVertexAttribArray(vertTexCoordAttrib)
