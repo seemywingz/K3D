@@ -6,6 +6,7 @@ import platform.OpenGLCommon.*
 import kotlin.system.exitProcess
 
 var K3DBasicShader: UInt = 0u
+var K3DColorShader: UInt = 0u
 
 val K3DBasicFragmentShader = """
 #version 410
@@ -118,6 +119,7 @@ fun k3dCreateShaderFromFiles(vertexSourceFile: String, fragmentSourceFile: Strin
 fun k3dInitShaders() {
 
     K3DBasicShader = k3dCreateShaderFromFiles("./src/resources/shaders/Vert.glsl", "./src/resources/shaders/basicFrag.glsl")
+    K3DColorShader = k3dCreateShaderFromFiles("./src/resources/shaders/Vert.glsl", "./src/resources/shaders/colorFrag.glsl")
 //    K3D_SHADER_BASIC = k3dCreateShader(K3DVertexShader, K3DBasicFragmentShader)
 
 }

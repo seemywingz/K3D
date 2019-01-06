@@ -1,10 +1,17 @@
 package k3d
 
+import cglm.*
 import kotlinx.cinterop.*
 
 class K3DVec3(var x: Float = 0f, var y: Float = 0f, var z: Float = 0f){
 
     val ptr = nativeHeap.allocArray<FloatVar>(3)
+
+    init {
+        ptr[0] = x
+        ptr[1] = y
+        ptr[2] = z
+    }
 
     fun update(){
         this.x = ptr[0]
@@ -13,6 +20,7 @@ class K3DVec3(var x: Float = 0f, var y: Float = 0f, var z: Float = 0f){
     }
 
     fun print(){
+        println()
         println("x: ${this.x}")
         println("y: ${this.y}")
         println("z: ${this.z}")
@@ -26,9 +34,11 @@ class K3DMat4(val array: FloatArray = FloatArray(16)){
 
     init {
         if (array.size != 16) throw Exception("K3DMat4: Provided FloatArray Not of Size 16")
-        for (i in this.array.indices) {
-            ptr[i] = array[i]
-        }
+        glm_mat4_identity(this.ptr)
+//        for (i in this.array.indices) {
+//            ptr[i] = array[i]
+//        }
+        update()
     }
 
     fun update(){
@@ -38,6 +48,7 @@ class K3DMat4(val array: FloatArray = FloatArray(16)){
     }
 
     fun print(){
+        println()
         this.array.forEach() { println(it) }
     }
 

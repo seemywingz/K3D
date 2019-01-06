@@ -34,7 +34,7 @@ class K3DCamera(width: Int, height: Int){
         //    width:height ratio,
         //    display range : 0.1 unit <-> 1000 units
         val ratio = width.toFloat() / height
-        glm_perspective(glm_rad(45.0f), ratio, 0.1f, 1000f, this.projectionMatrix.ptr)
+        glm_perspective(45f, ratio, 0.1f, 1000f, this.projectionMatrix.ptr)
         this.projectionMatrix.update()
 //        println("\nAFTER RESIZE:")
 //        this.projectionMatrix.print()

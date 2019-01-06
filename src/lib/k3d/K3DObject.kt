@@ -9,8 +9,6 @@ import kotlin.system.exitProcess
 class K3DObject private constructor(val position: K3DVec3, val program: UInt){
 
     lateinit var mesh: K3DMesh
-    val modelMatrix = K3DMat4(FloatArray(16))
-    val normalMatrix = K3DMat4(FloatArray(16))
 
     val modelMatrixID = glGetUniformLocation(program, "MODEL")
     val normalMatrixID = glGetUniformLocation(program, "NormalMatrix")
@@ -45,9 +43,15 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
     }
 
     // TODO: add mat4 matrix translation and rotation
-    fun translateRotate(): Unit {
+    fun translateRotate(): K3DMat4 {
 
-        glm_translate(this.modelMatrix.ptr, this.position.ptr)
+
+        val modelMatrix = K3DMat4()
+        modelMatrix.print()
+        glm_translate(modelMatrix.ptr, this.position.ptr)
+        modelMatrix.update()
+        modelMatrix.print()
+
         // TODO: Apply Local Scaling When Calculating translation for k3dobject
 //        glm_mat4_mul(modelMatrix.ptr, K3DVect3())
 
@@ -59,25 +63,28 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
 //        yrotMatrix := mgl32.HomogRotate3DY(mgl32.DegToRad(d.YRotation))
 //        zrotMatrix := mgl32.HomogRotate3DZ(mgl32.DegToRad(d.ZRotation))
 //        final := modelMatrix.Mul4(xrotMatrix.Mul4(yrotMatrix.Mul4(zrotMatrix)))
+        return modelMatrix
 
     }
 
     // TODO: Finish Drawing the object
     fun draw(){
 
-        translateRotate()
-        glm_mat4_inv(this.modelMatrix.ptr, this.normalMatrix.ptr)
-        glm_mat4_transpose(this.normalMatrix.ptr)
+        var modelMatrix = translateRotate()
+        val normalMatrix = K3DMat4()
+        glm_mat4_inv(modelMatrix.ptr, normalMatrix.ptr)
+        normalMatrix.update()
+        glm_mat4_transpose(normalMatrix.ptr)
+        normalMatrix.update()
 
         glUseProgram(this.program)
         glUniformMatrix4fv(this.mvpid, 1, GL_FALSE, k3dCamera.MVP.ptr)
-        glUniformMatrix4fv(this.modelMatrixID, 1, GL_FALSE, this.modelMatrix.ptr)
-        glUniformMatrix4fv(this.normalMatrixID, 1, GL_FALSE, this.normalMatrix.ptr)
+        glUniformMatrix4fv(modelMatrixID, 1, GL_FALSE, modelMatrix.ptr)
+        glUniformMatrix4fv(normalMatrixID, 1, GL_FALSE, normalMatrix.ptr)
 
         for ((_, m) in this.mesh.materialGroups) {
             glUseProgram(this.program)
             glBindVertexArray(m.vao)
-            //  println("Drawing VAO: ${m.vao}")
 
 
             // Material
