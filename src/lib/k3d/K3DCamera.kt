@@ -60,10 +60,7 @@ class K3DCamera(width: Int, height: Int){
         mouseControls()
         keyControls()
 
-        this.modelMatrix.print()
         glm_translate(this.modelMatrix.ptr, this.position.ptr)
-        this.modelMatrix.update()
-        this.modelMatrix.print()
 //        glm_mat4_identity(modelMatrix.ptr)
 //
 //

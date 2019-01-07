@@ -50,6 +50,8 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
     // TODO: Finish Drawing the object using camera MVP matrix
     fun draw(){
 
+        translateRotate()
+
         for ((_, m) in this.mesh.materialGroups) {
             glUseProgram(this.program)
             glBindVertexArray(m.vao)
