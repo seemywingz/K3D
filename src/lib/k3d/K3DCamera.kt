@@ -66,13 +66,12 @@ class K3DCamera(width: Int, height: Int){
         glm_rotate_y(yRotMatrix.ptr, this.yRotation, yRotMatrix.ptr)
 
         val viewMatrix = K3DMat4()
-        val projectionMatrix = K3DMat4()
         glm_mat4_identity(yRotMatrix.ptr)
         glm_mat4_mul(xRotMatrix.ptr, yRotMatrix.ptr, viewMatrix.ptr)
 
         glm_mat4_mul(viewMatrix.ptr, modelMatrix.ptr, viewMatrix.ptr)
 
-        glm_mat4_mul(projectionMatrix.ptr, viewMatrix.ptr, this.MVP.ptr)
+        glm_mat4_mul(this.projectionMatrix.ptr, viewMatrix.ptr, this.MVP.ptr)
 
     }
 

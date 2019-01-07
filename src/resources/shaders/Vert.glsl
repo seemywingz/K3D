@@ -17,5 +17,6 @@ void main(){
   fragPos =  fragPos4.xyz / fragPos4.w;
   fragNoraml = (NormalMatrix * vec4(vertNormal, 0.0)).xyz;
 
-  gl_Position =  MVP * MODEL * vec4(vert, 1.0);
+//  gl_Position =  MVP * MODEL * vec4(vert, 1.0);
+  gl_Position =  vec4(vert, 1.0);
 }

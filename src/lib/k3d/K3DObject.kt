@@ -27,7 +27,7 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
     constructor( position: K3DVec3, points: FloatArray, texture: UInt, color: FloatArray, program: UInt )
             : this(position, program) {
 
-        val vao = k3dCreateVAO(points, program)
+        val vao = k3dBuildVAO(points, program)
         val material = K3DMaterial(
             "default",
             color,
@@ -67,25 +67,12 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
 
     }
 
-    // TODO: Finish Drawing the object
+    // TODO: Finish Drawing the object using camera MVP matrix
     fun draw(){
-
-        var modelMatrix = translateRotate()
-        val normalMatrix = K3DMat4()
-        glm_mat4_inv(modelMatrix.ptr, normalMatrix.ptr)
-        normalMatrix.update()
-        glm_mat4_transpose(normalMatrix.ptr)
-        normalMatrix.update()
-
-        glUseProgram(this.program)
-        glUniformMatrix4fv(this.mvpid, 1, GL_FALSE, k3dCamera.MVP.ptr)
-        glUniformMatrix4fv(modelMatrixID, 1, GL_FALSE, modelMatrix.ptr)
-        glUniformMatrix4fv(normalMatrixID, 1, GL_FALSE, normalMatrix.ptr)
 
         for ((_, m) in this.mesh.materialGroups) {
             glUseProgram(this.program)
             glBindVertexArray(m.vao)
-
 
             // Material
             glUniform3fv(this.IambID, 1, m.material.ambient.toCValues())

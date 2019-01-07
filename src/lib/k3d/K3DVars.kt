@@ -2,6 +2,12 @@ package k3d
 
 val k3dWindowHints = mutableListOf<K3DWindowHint>()
 
+val K3DTestTriangle = floatArrayOf(
+    0.0f, 0.5f, 0.0f,
+    0.5f, -0.5f, 0.0f,
+    -0.5f, -0.5f, 0.0f
+)
+
 val K3DTriangle= floatArrayOf(
     -1f, -1f, 0f, 1f, 0f, 0f, 0f, 1f, 0f, 0f, 0f,
     0f, 1f, 0f, 0f, 0f, 0f, 0f, 1f, 0f, 0f, 0f,
