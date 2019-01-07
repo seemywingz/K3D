@@ -72,9 +72,9 @@ data class K3DMaterialGroup(
 
 data class K3DMaterial(
     val name: String,
-    val ambient:  FloatArray,
-    val diffuse: FloatArray,
-    val specular: FloatArray,
+    val ambient:  K3DVec3,
+    val diffuse: K3DVec3,
+    val specular: K3DVec3,
     val shininess: Float,
     val diffuseTex: UInt,
     val normalTex:  UInt

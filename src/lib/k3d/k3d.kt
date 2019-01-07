@@ -24,8 +24,6 @@ fun K3DInit(windowWidth: Int, windowHeight: Int, windowName: String): K3DWindow 
 // k3dBuildVAO : initializes and returns a vertex array from the points provided.
 fun k3dBuildVAO(points:  FloatArray, program: UInt): UInt {
 
-//    var offset = nativeHeap.alloc<IntVar>()
-
     var vao = nativeHeap.alloc<UIntVar>()
 
     glGenVertexArrays(1, vao.ptr)

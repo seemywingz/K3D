@@ -27,11 +27,11 @@ konanArtifacts {
         }
     }
 
-    program('K3DTriangle') {
+    program('K3DSimpleExample') {
         libraries {
             artifact 'openGL'
             artifact 'k3d'
         }
-        srcFiles fileTree('src/resources/examples/K3DTriangle.kt')
+        srcFiles fileTree('src/resources/examples/K3DSimpleExample.kt')
     }
 }

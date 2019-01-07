@@ -24,7 +24,7 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
 
     var scale = 1
 
-    constructor( position: K3DVec3, points: FloatArray, texture: UInt, color: FloatArray, program: UInt )
+    constructor( position: K3DVec3, points: FloatArray, texture: UInt, color: K3DVec3, program: UInt )
             : this(position, program) {
 
         val vao = k3dBuildVAO(points, program)
@@ -75,9 +75,9 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
             glBindVertexArray(m.vao)
 
             // Material
-            glUniform3fv(this.IambID, 1, m.material.ambient.toCValues())
-            glUniform3fv(this.IspecID, 1, m.material.specular.toCValues())
-            glUniform3fv(this.IdifID, 1, m.material.diffuse.toCValues())
+            glUniform3fv(this.IambID, 1, m.material.ambient.ptr)
+            glUniform3fv(this.IspecID, 1, m.material.specular.ptr)
+            glUniform3fv(this.IdifID, 1, m.material.diffuse.ptr)
             glUniform1f(this.shininessID, m.material.shininess)
 
             glUniform1i(this.textureID, 0)
