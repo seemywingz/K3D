@@ -11,7 +11,11 @@ class K3DCamera(width: Int, height: Int){
     var yRotation = 0f
     val MVP = K3DMat4()
     val position = K3DVec3()
+    val xRotMatrix = K3DMat4()
+    val yRotMatrix = K3DMat4()
+    val modelMatrix = K3DMat4()
     val projectionMatrix = K3DMat4()
+
 
     init {
 
@@ -35,9 +39,10 @@ class K3DCamera(width: Int, height: Int){
         //    display range : 0.1 unit <-> 1000 units
         val ratio = width.toFloat() / height
         glm_perspective(45f, ratio, 0.1f, 1000f, this.projectionMatrix.ptr)
-        this.projectionMatrix.update()
-//        println("\nAFTER RESIZE:")
-//        this.projectionMatrix.print()
+
+        // this.projectionMatrix.update()
+        // println("\nAFTER RESIZE:")
+        // this.projectionMatrix.print()
 
     }
 
@@ -55,23 +60,23 @@ class K3DCamera(width: Int, height: Int){
         mouseControls()
         keyControls()
 
-        val modelMatrix = K3DMat4()
-        glm_translate(modelMatrix.ptr, this.position.ptr)
-        glm_mat4_identity(modelMatrix.ptr)
-
-        val xRotMatrix = K3DMat4()
-        val yRotMatrix = K3DMat4()
-
-        glm_rotate_x(xRotMatrix.ptr, this.xRotation, xRotMatrix.ptr)
-        glm_rotate_y(yRotMatrix.ptr, this.yRotation, yRotMatrix.ptr)
-
-        val viewMatrix = K3DMat4()
-        glm_mat4_identity(yRotMatrix.ptr)
-        glm_mat4_mul(xRotMatrix.ptr, yRotMatrix.ptr, viewMatrix.ptr)
-
-        glm_mat4_mul(viewMatrix.ptr, modelMatrix.ptr, viewMatrix.ptr)
-
-        glm_mat4_mul(this.projectionMatrix.ptr, viewMatrix.ptr, this.MVP.ptr)
+        this.modelMatrix.print()
+        glm_translate(this.modelMatrix.ptr, this.position.ptr)
+        this.modelMatrix.update()
+        this.modelMatrix.print()
+//        glm_mat4_identity(modelMatrix.ptr)
+//
+//
+//        glm_rotate_x(xRotMatrix.ptr, this.xRotation, xRotMatrix.ptr)
+//        glm_rotate_y(yRotMatrix.ptr, this.yRotation, yRotMatrix.ptr)
+//
+//        val viewMatrix = K3DMat4()
+//        glm_mat4_identity(yRotMatrix.ptr)
+//        glm_mat4_mul(xRotMatrix.ptr, yRotMatrix.ptr, viewMatrix.ptr)
+//
+//        glm_mat4_mul(viewMatrix.ptr, modelMatrix.ptr, viewMatrix.ptr)
+//
+//        glm_mat4_mul(this.projectionMatrix.ptr, viewMatrix.ptr, this.MVP.ptr)
 
     }
 

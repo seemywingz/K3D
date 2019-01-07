@@ -43,27 +43,7 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
     }
 
     // TODO: add mat4 matrix translation and rotation
-    fun translateRotate(): K3DMat4 {
-
-
-        val modelMatrix = K3DMat4()
-        modelMatrix.print()
-        glm_translate(modelMatrix.ptr, this.position.ptr)
-        modelMatrix.update()
-        modelMatrix.print()
-
-        // TODO: Apply Local Scaling When Calculating translation for k3dobject
-//        glm_mat4_mul(modelMatrix.ptr, K3DVect3())
-
-        // TODO: Aplly local rotation to k3dobject
-//          val xrotMatrix = K3DMat4()
-//          val yrotMatrix = K3DMat4()
-//          val zrotMatrix = K3DMat4()
-//        xrotMatrix := mgl32.HomogRotate3DX(mgl32.DegToRad(d.XRotation))
-//        yrotMatrix := mgl32.HomogRotate3DY(mgl32.DegToRad(d.YRotation))
-//        zrotMatrix := mgl32.HomogRotate3DZ(mgl32.DegToRad(d.ZRotation))
-//        final := modelMatrix.Mul4(xrotMatrix.Mul4(yrotMatrix.Mul4(zrotMatrix)))
-        return modelMatrix
+    fun translateRotate(){
 
     }
 
