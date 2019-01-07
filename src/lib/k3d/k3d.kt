@@ -24,6 +24,7 @@ fun K3DInit(windowWidth: Int, windowHeight: Int, windowName: String): K3DWindow 
 // k3dBuildVAO : initializes and returns a vertex array from the points provided.
 fun k3dBuildVAO(points:  FloatArray, program: UInt): UInt {
 
+    val offset: CPointer<FloatVar>? = null
     val vao = nativeHeap.alloc<UIntVar>()
     val vbo = nativeHeap.alloc<UIntVar>()
 
@@ -36,7 +37,7 @@ fun k3dBuildVAO(points:  FloatArray, program: UInt): UInt {
 
     val vertAttrib = glGetAttribLocation(program, "vert").toUInt()
     glEnableVertexAttribArray(vertAttrib)
-    glVertexAttribPointer(vertAttrib, 3, GL_FLOAT, GL_FALSE, 11 * sizeOf<FloatVar>().toInt(), null)
+    glVertexAttribPointer(vertAttrib, 3, GL_FLOAT, GL_FALSE, 11 * sizeOf<FloatVar>().toInt(), offset)
 
     val vertTexCoordAttrib = glGetAttribLocation(program, "vertTexCoord").toUInt()
     glEnableVertexAttribArray(vertTexCoordAttrib)
