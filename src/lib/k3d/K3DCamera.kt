@@ -9,12 +9,9 @@ class K3DCamera(width: Int, height: Int){
     var speed = 1
     var xRotation = 0f
     var yRotation = 0f
-    val MVP = K3DMat4()
-    val position = K3DVec3()
-    val xRotMatrix = K3DMat4()
-    val yRotMatrix = K3DMat4()
-    val modelMatrix = K3DMat4()
-    val projectionMatrix = K3DMat4()
+    val position = K3DVec3(0f,0f,1f)
+    val projection = K3DMat4()
+    val modelViewProjection = K3DMat4()
 
 
     init {
@@ -38,11 +35,9 @@ class K3DCamera(width: Int, height: Int){
         //    width:height ratio,
         //    display range : 0.1 unit <-> 1000 units
         val ratio = width.toFloat() / height
-        glm_perspective(45f, ratio, 0.1f, 1000f, this.projectionMatrix.ptr)
-
-        // this.projectionMatrix.update()
-        // println("\nAFTER RESIZE:")
-        // this.projectionMatrix.print()
+        glm_perspective(glm_rad(45f), ratio, 0.1f, 1000f, this.projection.ptr)
+//        println("\nAFTER RESIZE:")
+//        this.projection.print()
 
     }
 
@@ -60,20 +55,14 @@ class K3DCamera(width: Int, height: Int){
         mouseControls()
         keyControls()
 
-        glm_translate(this.modelMatrix.ptr, this.position.ptr)
-//        glm_mat4_identity(modelMatrix.ptr)
-//
-//
-//        glm_rotate_x(xRotMatrix.ptr, this.xRotation, xRotMatrix.ptr)
-//        glm_rotate_y(yRotMatrix.ptr, this.yRotation, yRotMatrix.ptr)
-//
-//        val viewMatrix = K3DMat4()
-//        glm_mat4_identity(yRotMatrix.ptr)
-//        glm_mat4_mul(xRotMatrix.ptr, yRotMatrix.ptr, viewMatrix.ptr)
-//
-//        glm_mat4_mul(viewMatrix.ptr, modelMatrix.ptr, viewMatrix.ptr)
-//
-//        glm_mat4_mul(this.projectionMatrix.ptr, viewMatrix.ptr, this.MVP.ptr)
+        val model = K3DMat4()
+
+        glm_translate(model.ptr, this.position.ptr)
+
+        // TODO: Calculate Rotation
+
+        glm_mat4_mul(this.projection.ptr, model.ptr, this.modelViewProjection.ptr)
+        model.free()
 
     }
 

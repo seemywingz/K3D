@@ -42,15 +42,18 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
 
     }
 
-    // TODO: add mat4 matrix translation and rotation
-    fun translateRotate(){
-
-    }
-
     // TODO: Finish Drawing the object using camera MVP matrix
     fun draw(){
 
-        translateRotate()
+        val model = K3DMat4()
+        glm_translate(model.ptr, this.position.ptr)
+
+        // TODO: Calculate Rotation
+
+        glUseProgram(this.program)
+        glUniformMatrix4fv(this.mvpid, 1, GL_FALSE, k3dCamera.modelViewProjection.ptr)
+        glUniformMatrix4fv(this.modelMatrixID, 1, GL_FALSE, model.ptr)
+        glUniformMatrix4fv(this.normalMatrixID, 1, GL_FALSE, model.ptr)
 
         for ((_, m) in this.mesh.materialGroups) {
             glUseProgram(this.program)

@@ -5,51 +5,32 @@ import kotlinx.cinterop.*
 
 class K3DVec3(var x: Float = 0f, var y: Float = 0f, var z: Float = 0f){
 
-    val ptr = nativeHeap.allocArray<FloatVar>(3)
-
-    init {
-        ptr[0] = x
-        ptr[1] = y
-        ptr[2] = z
-    }
-
-    fun update(){
-        this.x = ptr[0]
-        this.y = ptr[1]
-        this.z = ptr[2]
-    }
+    val ptr = nativeHeap.allocArrayOf(x, y, z)
 
     fun print(){
         println()
-        println("x: ${this.x}")
-        println("y: ${this.y}")
-        println("z: ${this.z}")
+        println("x: ${this.ptr[0]}")
+        println("y: ${this.ptr[1]}")
+        println("z: ${this.ptr[2]}")
     }
 
 }
 
-class K3DMat4(val array: FloatArray = FloatArray(16)){
+class K3DMat4(){
 
-    val ptr = nativeHeap.allocArray<FloatVar>(this.array.size)
+    val ptr = nativeHeap.allocArray<FloatVar>(16)
 
     init {
-        if (array.size != 16) throw Exception("K3DMat4: Provided FloatArray Not of Size 16")
         glm_mat4_identity(this.ptr)
-//        for (i in this.array.indices) {
-//            ptr[i] = array[i]
-//        }
-        update()
-    }
-
-    fun update(){
-        for (i in this.array.indices) {
-            this.array[i] = ptr[i]
-        }
     }
 
     fun print(){
         println()
-        this.array.forEach() { println(it) }
+        for (i in 0..15){ println(this.ptr[i])}
+    }
+
+    fun free(){
+        nativeHeap.free(ptr)
     }
 
 }
