@@ -9,7 +9,7 @@ class K3DCamera(width: Int, height: Int){
     var speed = 1
     var xRotation = 0f
     var yRotation = 0f
-    val position = K3DVec3(0f,0f,1f)
+    val position = K3DVec3()
     val projection = K3DMat4()
     val modelViewProjection = K3DMat4()
 
@@ -35,7 +35,7 @@ class K3DCamera(width: Int, height: Int){
         //    width:height ratio,
         //    display range : 0.1 unit <-> 1000 units
         val ratio = width.toFloat() / height
-        glm_perspective(glm_rad(45f), ratio, 0.1f, 1000f, this.projection.ptr)
+        glm_perspective(glm_rad(45f), ratio, 0.01f, 1000f, this.projection.ptr)
 //        println("\nAFTER RESIZE:")
 //        this.projection.print()
 

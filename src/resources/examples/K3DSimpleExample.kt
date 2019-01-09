@@ -10,15 +10,18 @@ fun main(){
     // Build the K3DObject
     val position = K3DVec3(0f,0f,-5f) // X,Y,Z
     val color = K3DVec3(0f,0f,1f)// R,G,B
-    val k3dObject = K3DObject( position, K3DPlane, K3DNoTexture, color, K3DColorShader)
+    val k3dObject = K3DObject( position, K3DTriangle, K3DNoTexture, color, K3DColorShader)
     var z = 0f
+    var dz = -0.01f
 
     while ( !k3dWindow.shouldClose() ){
 
         k3dWindow.update()
 
-        z -= 0.01f
-        k3dObject.position.ptr[2] = z
+        if (z <= -10f || z >= 0.01f){ dz = -dz}
+        z += dz
+
+        k3dObject.position.setZ(z)
         k3dObject.draw()
 
         k3dWindow.swapBuffers()

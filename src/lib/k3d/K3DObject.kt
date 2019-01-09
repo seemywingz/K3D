@@ -82,6 +82,7 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
             glActiveTexture(GL_TEXTURE1)
             glBindTexture(GL_TEXTURE_2D, 0)
         }
+        model.free()
 
     }
 

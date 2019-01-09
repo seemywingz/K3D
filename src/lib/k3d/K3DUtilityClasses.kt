@@ -7,6 +7,16 @@ class K3DVec3(var x: Float = 0f, var y: Float = 0f, var z: Float = 0f){
 
     val ptr = nativeHeap.allocArrayOf(x, y, z)
 
+    fun set(x: Float, y: Float, z: Float){
+        this.ptr[0] = x
+        this.ptr[1] = y
+        this.ptr[2] = z
+    }
+
+    fun setX(x: Float){ this.ptr[0] = x}
+    fun setY(y: Float){ this.ptr[1] = y}
+    fun setZ(z: Float){ this.ptr[2] = z}
+
     fun print(){
         println()
         println("x: ${this.ptr[0]}")

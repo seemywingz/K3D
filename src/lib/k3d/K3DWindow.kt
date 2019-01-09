@@ -35,10 +35,8 @@ class K3DWindow(windowWidth: Int, windowHeight: Int, windowName: String){
         glfwMakeContextCurrent(this.glfwWindow)
 
         val onResize = staticCFunction({ window: CPointer<GLFWwindow>?, width: Int, height: Int ->
-            memScoped {
-                k3dCamera.setPerspective(width, height)
-                k3dMojaveWorkaround(window)
-            }
+            k3dCamera.setPerspective(width, height)
+            k3dMojaveWorkaround(window)
         })
 
         glfwSetWindowSizeCallback(this.glfwWindow, onResize)
