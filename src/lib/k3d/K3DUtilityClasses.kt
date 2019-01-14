@@ -13,6 +13,10 @@ class K3DVec3(var x: Float = 0f, var y: Float = 0f, var z: Float = 0f){
         this.ptr[2] = z
     }
 
+    fun getX(): Float {return this.ptr[0]}
+    fun getY(): Float {return this.ptr[1]}
+    fun getZ(): Float {return this.ptr[2]}
+
     fun setX(x: Float){ this.ptr[0] = x}
     fun setY(y: Float){ this.ptr[1] = y}
     fun setZ(z: Float){ this.ptr[2] = z}

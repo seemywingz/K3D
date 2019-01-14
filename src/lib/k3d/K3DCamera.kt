@@ -9,6 +9,7 @@ class K3DCamera(width: Int, height: Int){
     var speed = 1
     var xRotation = 0f
     var yRotation = 0f
+    val model = K3DMat4()
     val position = K3DVec3()
     val projection = K3DMat4()
     val modelViewProjection = K3DMat4()
@@ -21,6 +22,7 @@ class K3DCamera(width: Int, height: Int){
         println(glGetString(GL_RENDERER))
 
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+        glEnable(GL_DEPTH_TEST)
         glEnable(GL_BLEND)
 
         setPerspective(width, height)
@@ -35,7 +37,7 @@ class K3DCamera(width: Int, height: Int){
         //    width:height ratio,
         //    display range : 0.1 unit <-> 1000 units
         val ratio = width.toFloat() / height
-        glm_perspective(glm_rad(45f), ratio, 0.01f, 1000f, this.projection.ptr)
+        glm_perspective(glm_rad(45f), ratio, 0.1f, 1000f, projection.ptr)
 //        println("\nAFTER RESIZE:")
 //        this.projection.print()
 
@@ -55,14 +57,12 @@ class K3DCamera(width: Int, height: Int){
         mouseControls()
         keyControls()
 
-        val model = K3DMat4()
 
-        glm_translate(model.ptr, this.position.ptr)
+        glm_translate(model.ptr, position.ptr)
 
         // TODO: Calculate Rotation
 
-        glm_mat4_mul(this.projection.ptr, model.ptr, this.modelViewProjection.ptr)
-        model.free()
+        glm_mat4_mul(projection.ptr, model.ptr, modelViewProjection.ptr)
 
     }
 

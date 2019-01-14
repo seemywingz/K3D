@@ -41,15 +41,15 @@ fun k3dBuildVAO(points:  FloatArray, program: UInt): UInt {
 
     val vertTexCoordAttrib = glGetAttribLocation(program, "vertTexCoord").toUInt()
     glEnableVertexAttribArray(vertTexCoordAttrib)
-    glVertexAttribPointer(vertTexCoordAttrib, 2, GL_FLOAT, GL_FALSE, 11 * sizeOf<FloatVar>().toInt(), cValuesOf(0,0,0))
+    glVertexAttribPointer(vertTexCoordAttrib, 2, GL_FLOAT, GL_FALSE, 11 * sizeOf<FloatVar>().toInt(), offset + 3)
 
     val vertNormalAttrib = glGetAttribLocation(program, "vertNormal").toUInt()
     glEnableVertexAttribArray(vertNormalAttrib)
-    glVertexAttribPointer(vertNormalAttrib, 3, GL_FLOAT, GL_TRUE, 11 * sizeOf<FloatVar>().toInt(), cValuesOf(5 * 4))
+    glVertexAttribPointer(vertNormalAttrib, 3, GL_FLOAT, GL_TRUE, 11 * sizeOf<FloatVar>().toInt(), offset +5)
 
     val vertTangentAttrib = glGetAttribLocation(program, "vertTangent").toUInt()
     glEnableVertexAttribArray(vertTangentAttrib)
-    glVertexAttribPointer(vertTangentAttrib, 3, GL_FLOAT, GL_TRUE, 11 * sizeOf<FloatVar>().toInt(), cValuesOf(8 * 4))
+    glVertexAttribPointer(vertTangentAttrib, 3, GL_FLOAT, GL_TRUE, 11 * sizeOf<FloatVar>().toInt(), offset + 8)
 
     return vao.value
 

@@ -10,9 +10,10 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
 
     lateinit var mesh: K3DMesh
 
+    val mvpid = glGetUniformLocation(program, "MVP")
+    val colorID = glGetUniformLocation(program, "COLOR")
     val modelMatrixID = glGetUniformLocation(program, "MODEL")
     val normalMatrixID = glGetUniformLocation(program, "NormalMatrix")
-    val mvpid = glGetUniformLocation(program, "MVP")
 
     val uniform = "Material"
     val IambID = glGetUniformLocation(program, uniform+".Iamb")
@@ -21,6 +22,9 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
     val shininessID = glGetUniformLocation(program, uniform+".shininess")
     val textureID = glGetUniformLocation(program, "TEXTURE")
     val normalMapID = glGetUniformLocation(program, "NORMAL_MAP")
+
+    val model = K3DMat4()
+    val rotation = K3DVec3()
 
     var scale = 1
 
@@ -42,47 +46,53 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
 
     }
 
-    // TODO: Finish Drawing the object using camera MVP matrix
     fun draw(){
 
-        val model = K3DMat4()
-        glm_translate(model.ptr, this.position.ptr)
+        glm_mat4_identity(model.ptr)
+        glm_translate(model.ptr, position.ptr)
 
         // TODO: Calculate Rotation
+        glm_rotate_x(model.ptr, glm_rad(rotation.getX()), model.ptr)
+        glm_rotate_y(model.ptr, glm_rad(rotation.getY()), model.ptr)
+        glm_rotate_z(model.ptr, glm_rad(rotation.getZ()), model.ptr)
 
-        glUseProgram(this.program)
-        glUniformMatrix4fv(this.mvpid, 1, GL_FALSE, k3dCamera.modelViewProjection.ptr)
-        glUniformMatrix4fv(this.modelMatrixID, 1, GL_FALSE, model.ptr)
-        glUniformMatrix4fv(this.normalMatrixID, 1, GL_FALSE, model.ptr)
+        glUseProgram(program)
+        glUniformMatrix4fv(mvpid, 1, GL_FALSE, k3dCamera.modelViewProjection.ptr)
+        glUniformMatrix4fv(modelMatrixID, 1, GL_FALSE, model.ptr)
 
-        for ((_, m) in this.mesh.materialGroups) {
-            glUseProgram(this.program)
+        glm_mat4_inv(model.ptr, model.ptr)
+        glm_mat4_transpose(model.ptr)
+        glUniformMatrix4fv(normalMatrixID, 1, GL_FALSE, model.ptr)
+
+        for ((_, m) in mesh.materialGroups) {
+            glUseProgram(program)
             glBindVertexArray(m.vao)
 
             // Material
-            glUniform3fv(this.IambID, 1, m.material.ambient.ptr)
-            glUniform3fv(this.IspecID, 1, m.material.specular.ptr)
-            glUniform3fv(this.IdifID, 1, m.material.diffuse.ptr)
-            glUniform1f(this.shininessID, m.material.shininess)
+            glUniform3fv(IambID, 1, m.material.ambient.ptr)
+            glUniform3fv(IspecID, 1, m.material.specular.ptr)
+            glUniform3fv(IdifID, 1, m.material.diffuse.ptr)
+            glUniform1f(shininessID, m.material.shininess)
 
-            glUniform1i(this.textureID, 0)
-            glUniform1i(this.normalMapID, 1)
+            glUniform1i(textureID, 0)
+            glUniform1i(normalMapID, 1)
 
             // Bind our diffuse texture in Texture Unit 0
             glActiveTexture(GL_TEXTURE0)
             glBindTexture(GL_TEXTURE_2D, m.material.diffuseTex)
 
+            // Bind our normal texture in Texture Unit 1
             glActiveTexture(GL_TEXTURE1)
             glBindTexture(GL_TEXTURE_2D, m.material.normalTex)
 
             glDrawArrays(GL_TRIANGLES, 0, m.vertCount)
 
+            // clear the bound textures
             glActiveTexture(GL_TEXTURE0)
             glBindTexture(GL_TEXTURE_2D, 0)
             glActiveTexture(GL_TEXTURE1)
             glBindTexture(GL_TEXTURE_2D, 0)
         }
-        model.free()
 
     }
 
