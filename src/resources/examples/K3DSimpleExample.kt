@@ -20,7 +20,7 @@ fun main(){
 //        if (k3dObject.position.getZ() <= -10f || k3dObject.position.getZ() >= 0.01f){ dz = -dz}
 //        k3dObject.position.setZ( k3dObject.position.getZ() + dz )
 
-        k3dObject.rotation.setY( k3dObject.rotation.getY() + 0.1f )
+        k3dObject.rotation.setY( k3dObject.rotation.getY() + 0.01f )
         k3dObject.draw()
 
         k3dWindow.swapBuffers()
