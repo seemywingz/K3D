@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7f5ef0a-aaa0-49f6-96b0-7508f36ac9fc" name="Default Changelist" comment="remove GLUT support">
-      <change afterPath="$PROJECT_DIR$/src/lib/k3d/K3DLight.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/k3d/K3DConstants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/k3d/K3DConstants.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/k3d/K3DObject.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/k3d/K3DObject.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/k3d/K3DShaders.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/k3d/K3DShaders.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/k3d/K3DVars.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/k3d/K3DVars.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/examples/K3DSimpleExample.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/examples/K3DSimpleExample.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -63,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DObject.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="1242">
+              <caret line="69" selection-start-line="69" selection-end-line="69" />
               <folding>
                 <element signature="e#13#115#0" expanded="true" />
               </folding>
@@ -91,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DShaders.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="5" column="32" lean-forward="true" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+              <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
               <folding>
                 <element signature="e#13#118#0" expanded="true" />
                 <element signature="e#266#2781#0" />
@@ -103,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/resources/examples/K3DSimpleExample.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="12" column="91" selection-start-line="12" selection-start-column="91" selection-end-line="12" selection-end-column="91" />
+            <state relative-caret-position="159">
+              <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -126,8 +120,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>glm_perspective</find>
-      <find>offset</find>
       <find>vao</find>
       <find>mem</find>
       <find>translate</find>
@@ -156,6 +148,8 @@
       <find>k3dWindowHints</find>
       <find>wind</find>
       <find>program</find>
+      <find>dz</find>
+      <find>k3dObject</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -164,6 +158,8 @@
       <replace>GL_TEXTURE</replace>
       <replace>0f,</replace>
       <replace>program!!</replace>
+      <replace>delta</replace>
+      <replace>object</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/lib/K3D</dir>
@@ -225,8 +221,8 @@
         <option value="$PROJECT_DIR$/src/lib/k3d/K3DShaders.kt" />
         <option value="$PROJECT_DIR$/src/lib/k3d/K3DVars.kt" />
         <option value="$PROJECT_DIR$/src/lib/k3d/K3DLight.kt" />
-        <option value="$PROJECT_DIR$/src/resources/examples/K3DSimpleExample.kt" />
         <option value="$PROJECT_DIR$/src/lib/k3d/K3DObject.kt" />
+        <option value="$PROJECT_DIR$/src/resources/examples/K3DSimpleExample.kt" />
       </list>
     </option>
   </component>
@@ -494,7 +490,7 @@
       <workItem from="1547238573649" duration="1839000" />
       <workItem from="1547427252671" duration="8033000" />
       <workItem from="1547488047693" duration="5000" />
-      <workItem from="1547594819801" duration="5683000" />
+      <workItem from="1547594819801" duration="7513000" />
     </task>
     <task id="LOCAL-00001" summary="remove GLUT support">
       <created>1545842981031</created>
@@ -507,7 +503,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="212481000" />
+    <option name="totallyTimeSpent" value="214311000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -799,7 +795,7 @@
     <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DShaders.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="5" column="32" lean-forward="true" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
           <folding>
             <element signature="e#13#118#0" expanded="true" />
             <element signature="e#266#2781#0" />
@@ -810,22 +806,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/examples/K3DSimpleExample.kt">
+    <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DObject.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="12" column="91" selection-start-line="12" selection-start-column="91" selection-end-line="12" selection-end-column="91" />
+        <state relative-caret-position="1242">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
           <folding>
-            <element signature="e#0#54#0" expanded="true" />
+            <element signature="e#13#115#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/k3d/K3DObject.kt">
+    <entry file="file://$PROJECT_DIR$/src/resources/examples/K3DSimpleExample.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+        <state relative-caret-position="159">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
           <folding>
-            <element signature="e#13#115#0" expanded="true" />
+            <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>

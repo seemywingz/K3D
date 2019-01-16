@@ -12,25 +12,28 @@ fun main(){
     val color = K3DVec3(1f,0f,1f)// R,G,B
     val k3dObject = K3DObject( position, K3DCube, K3DNoTexture, color, k3dShader["default"])
 
-//    val light = K3DLight(
-//        K3DVec3(0f,0f,0f), // position
-//        5f, // radius
-//        K3DVec3(0.1f,0.1f,0.1f), // ambient
-//        K3DVec3(1f,1f,1f), // diffuse
-//        K3DVec3(0.1f,0.1f,0.1f)  // specular
-//    )
+    // for a default white light at 0,0,0 with radius 10f
+    // val light = K3DLight()
 
-    val light = K3DLight()
+    val light = K3DLight(
+        K3DVec3(0f,0f,0f), // position
+        10f, // radius
+        K3DVec3(0.1f,0.1f,0.1f), // ambient
+        K3DVec3(1f,1f,1f), // diffuse
+        K3DVec3(0.1f,0.1f,0.1f)  // specular
+    )
+
+    var delta = -0.01f
 
     while ( !k3dWindow.shouldClose() ){
 
         k3dWindow.update()
-
-//        var dz = -0.01f
-//        if (light.position.getZ() <= -10f || light.position.getZ() >= -2f){ dz = -dz}
-//        light.position.setZ( light.position.getZ() + dz )
         light.update()
 
+        val x = k3dObject.position.getX()
+        if ( x < -3f || x > 3f){ delta = -delta }
+
+        k3dObject.position.setX( x + delta )
         k3dObject.rotation.setY( k3dObject.rotation.getY() + 0.1f )
         k3dObject.draw()
 
