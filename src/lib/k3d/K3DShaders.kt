@@ -5,11 +5,6 @@ import kotlinx.cinterop.*
 import platform.OpenGLCommon.*
 import kotlin.system.exitProcess
 
-var K3DShader: UInt = 0u
-var K3DBasicShader: UInt = 0u
-var K3DColorShader: UInt = 0u
-var K3DCenterLightShader: UInt = 0u
-
 val K3DFragmentShader = """
 #version 410
 const float pi = 3.14159265;
@@ -298,12 +293,8 @@ fun k3dCreateShaderFromFiles(vertexSourceFile: String, fragmentSourceFile: Strin
 
 fun k3dInitShaders() {
 
-    K3DShader = k3dCreateShader(K3DVertexShader, K3DFragmentShader)
-//    K3DShader = k3dCreateShaderFromFiles("./src/resources/shaders/K3DVert.glsl", "./src/resources/shaders/K3DFrag.glsl")
-
-    K3DColorShader = k3dCreateShader(K3DVertexShader, K3DColorFragmentShader)
-
-//    K3DCenterLightShader = k3dCreateShader(K3DVertexShader, K3DCenterLightFragmentShader)
-    K3DCenterLightShader = k3dCreateShaderFromFiles("./src/resources/shaders/K3DVert.glsl", "./src/resources/shaders/fixedLightFrag.glsl")
+    k3dShader["default"] = k3dCreateShader(K3DVertexShader, K3DFragmentShader)
+    k3dShader["color"] = k3dCreateShader(K3DVertexShader, K3DColorFragmentShader)
+    k3dShader["singleLight"] = k3dCreateShaderFromFiles("./src/resources/shaders/K3DVert.glsl", "./src/resources/shaders/fixedLightFrag.glsl")
 
 }

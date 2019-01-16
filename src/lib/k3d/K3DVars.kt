@@ -1,5 +1,6 @@
 package k3d
 
+val k3dShader = mutableMapOf<String, UInt>()
 val k3dWindowHints = mutableListOf<K3DWindowHint>()
 
 val K3DTestTriangle = floatArrayOf(

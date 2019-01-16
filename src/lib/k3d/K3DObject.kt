@@ -6,32 +6,32 @@ import openGL.*
 import kotlinx.cinterop.*
 import kotlin.system.exitProcess
 
-class K3DObject private constructor(val position: K3DVec3, val program: UInt){
+class K3DObject private constructor(val position: K3DVec3, val program: UInt?){
 
     lateinit var mesh: K3DMesh
 
-    val mvpid = glGetUniformLocation(program, "MVP")
-    val colorID = glGetUniformLocation(program, "COLOR")
-    val modelMatrixID = glGetUniformLocation(program, "MODEL")
-    val normalMatrixID = glGetUniformLocation(program, "NormalMatrix")
+    val mvpid = glGetUniformLocation(program!!, "MVP")
+    val colorID = glGetUniformLocation(program!!, "COLOR")
+    val modelMatrixID = glGetUniformLocation(program!!, "MODEL")
+    val normalMatrixID = glGetUniformLocation(program!!, "NormalMatrix")
 
     val uniform = "Material"
-    val IambID = glGetUniformLocation(program, uniform+".Iamb")
-    val IdifID = glGetUniformLocation(program, uniform+".Idif")
-    val IspecID = glGetUniformLocation(program, uniform+".Ispec")
-    val shininessID = glGetUniformLocation(program, uniform+".shininess")
-    val textureID = glGetUniformLocation(program, "TEXTURE")
-    val normalMapID = glGetUniformLocation(program, "NORMAL_MAP")
+    val IambID = glGetUniformLocation(program!!, uniform+".Iamb")
+    val IdifID = glGetUniformLocation(program!!, uniform+".Idif")
+    val IspecID = glGetUniformLocation(program!!, uniform+".Ispec")
+    val shininessID = glGetUniformLocation(program!!, uniform+".shininess")
+    val textureID = glGetUniformLocation(program!!, "TEXTURE")
+    val normalMapID = glGetUniformLocation(program!!, "NORMAL_MAP")
 
     val model = K3DMat4()
     val rotation = K3DVec3()
 
     var scale = 1
 
-    constructor( position: K3DVec3, points: FloatArray, texture: UInt, color: K3DVec3, program: UInt )
+    constructor( position: K3DVec3, points: FloatArray, texture: UInt, color: K3DVec3, program: UInt? )
             : this(position, program) {
 
-        val vao = k3dBuildVAO(points, program)
+        val vao = k3dBuildVAO(points, program!!)
         val material = K3DMaterial(
             "default",
             color,
@@ -56,7 +56,7 @@ class K3DObject private constructor(val position: K3DVec3, val program: UInt){
         glm_rotate_y(model.ptr, glm_rad(rotation.getY()), model.ptr)
         glm_rotate_z(model.ptr, glm_rad(rotation.getZ()), model.ptr)
 
-        glUseProgram(program)
+        glUseProgram(program!!)
         glUniformMatrix4fv(mvpid, 1, GL_FALSE, k3dCamera.modelViewProjection.ptr)
         glUniformMatrix4fv(modelMatrixID, 1, GL_FALSE, model.ptr)
 
